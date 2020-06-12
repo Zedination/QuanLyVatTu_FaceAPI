@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpvt" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bb32c6a4-cd7a-4d75-94bc-279caffc5434">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="v_Mavtu" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="v_TenVTu" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT [Mavtu]
+      ,[TenVTu]
+      ,[Dvtinh]
+      ,[Phantram] FROM dbo.VATTU Where Mavtu like '%'+ $P{v_Mavtu}+'%' and TenVtu like
+'%' + $P{v_TenVTu} + '%']]>
+	</queryString>
+	<field name="Mavtu" class="java.lang.String"/>
+	<field name="TenVTu" class="java.lang.String"/>
+	<field name="Dvtinh" class="java.lang.String"/>
+	<field name="Phantram" class="java.lang.Float"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="113" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="68" width="555" height="20" uuid="c1ec4ebb-66ce-4e21-8117-d37dd1d04a0c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14" isBold="true" isItalic="false" isUnderline="false" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[DANH MỤC VẬT TƯ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="9" width="298" height="38" uuid="6e2747d6-f4bc-4360-8940-b60f68f2e3e4"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12" isBold="true" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[Học viện Devmaster
+Chương trình Spring MVC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="14" width="128" height="20" uuid="38912687-9a5a-4d32-b330-78217176fddd"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[Ngày xuất báo cáo:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="426" y="14" width="129" height="20" uuid="c133dad3-71d4-4f82-bc49-deb925083121"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12" pdfEncoding="Cp1258"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="125" height="20" uuid="100a0d1c-a00c-4dee-a60f-eed7c22fbf76"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[Mã Vật Tư]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="0" width="173" height="20" uuid="2321f690-1724-47fd-9147-3fb5880ecf36"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[Tên Vật Tư]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="0" width="128" height="20" uuid="6ce8ea23-1439-45e8-ba77-84d7126a1cf0"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[Đơn Vị Tính]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="426" y="0" width="129" height="20" uuid="dbe3733d-7fda-4b2f-857d-54116dbed369"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true" pdfEncoding="Cp1258"/>
+				</textElement>
+				<text><![CDATA[Phần Trăm]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="125" height="20" uuid="80534fa7-c815-43cd-b4dc-e74fe841c56c"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" pdfEncoding="Cp1258"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Mavtu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="0" width="173" height="20" uuid="e901c814-650a-44af-a75d-9f4ebfa9e2cb"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" pdfEncoding="Cp1258"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TenVTu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="298" y="0" width="128" height="20" uuid="3dc42ac1-af28-4850-9b54-f078cc03c1a3"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" pdfEncoding="Cp1258"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Dvtinh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="426" y="0" width="129" height="20" uuid="ae75e2df-f4fb-49b4-a168-3641e81e9154"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" pdfEncoding="Cp1258"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Phantram}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

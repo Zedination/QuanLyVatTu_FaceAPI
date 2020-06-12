@@ -1,0 +1,72 @@
+/*
+	smooth taste table styles
+	written by Thomas Opp http://www.yaway.de
+*/
+table {
+  border-collapse: collapse;
+  border: 1px solid #38160C;
+  font: normal 11px verdana, arial, helvetica, sans-serif;
+  color: #F6ECF0;
+  background: #FFFFFF;
+  }
+caption {
+  text-align: left;
+  font: normal 11px verdana, arial, helvetica, sans-serif;
+  background: transparent;
+  }
+  TH {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #ffffff; FONT-FAMILY: Arial; BACKGROUND-COLOR: #FFFFFF;
+	BORDER-RIGHT: #619CBE 1px solid; BORDER-TOP: #619CBE 1px solid; BACKGROUND:url(images/navbasebg.jpg) #3B85B4 repeat-x 0px 0px; BORDER-LEFT: #619CBE 1px solid; BORDER-BOTTOM: #619CBE 1px solid; padding: .8em;
+}
+td {
+  border: 1px dashed #B85A7C;
+  padding: .8em;
+  color: #000000;
+  }
+thead th, tfoot th {
+  font: bold 11px verdana, arial, helvetica, sans-serif;
+  border: 1px solid #A85070;;
+  text-align: left;
+  background: #ffffff;
+  color: #F6ECF0;
+  padding-top:6px;
+  }
+tbody td a {
+  background: transparent;
+  text-decoration: none;
+  color: #000000;
+  }
+tbody td a:hover {
+  background: transparent;
+  color: #FFFFFF;
+  }
+tbody th a {
+  font: normal 11px verdana, arial, helvetica, sans-serif;
+  background: transparent;
+  text-decoration: none;
+  font-weight:normal;
+  color: #F6ECF0;
+  }
+tbody th a:hover {
+  background: transparent;
+  color: #FFFFFF;
+  }
+tbody th, tbody td {
+  vertical-align: top;
+  text-align: left;
+  }
+tfoot td {
+  border: 1px solid #38160C;
+  background: #38160C;
+  padding-top:6px;
+  }
+.odd {
+  background: #88BBEE;
+  }
+tbody tr:hover {
+  background: #88BBEE;
+  }
+tbody tr:hover th,
+tbody tr.odd:hover th {
+  background: #88BBEE;
+  }

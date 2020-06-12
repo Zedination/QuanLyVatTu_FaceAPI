@@ -1,0 +1,12 @@
+
+#basic-modal-content {display:none;}
+
+/* Overlay */
+#simplemodal-overlay {background-color:#000000; cursor:wait;}
+
+/* Container */
+#simplemodal-container {height:700px; width:1000px; color:#bbb; background-color:#D8EBF6; border:1px solid #C3413B; padding:12px;}
+#simplemodal-container code {background:#141414; border-left:3px solid #65B43D; color:#bbb; display:block; margin-bottom:12px; padding:4px 6px 6px;}
+/*#simplemodal-container a {color:#dddddd;}*/
+#simplemodal-container a.modalCloseImg {background:url(../images/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:0px; right:0px; cursor:pointer;}
+#simplemodal-container #basic-modal-content {padding:8px;}

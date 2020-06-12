@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-autowire="autodetect">
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+	    <property name="staticMethod" value="com.devmaster.mvc.util.DBUtil.configure"/>
+	    <property name="arguments">
+	        <list>
+	           <value>jdbc:sqlserver://anhduc.database.windows.net;database=localdevmaster</value>
+	           <value>anhduc</value>
+	           <value>171201239duc!</value>
+	        </list>
+	   </property>
+	</bean>
+</beans>

@@ -1,0 +1,4202 @@
+/*
+	dojo.css
+	Baseline CSS file for general usage.
+
+	This file is intended to be a "quick and dirty" stylesheet you can use to give
+	a straight-up web page some basic styling without having to do the dirty work
+	yourself.  It includes a modified version of YUI's reset.css (we pulled some
+	of the list reset definitions, among other things), and then provides some very
+	basic style rules to be applied to general HTML elements.
+
+	This stylesheet is NOT intended to serve as the foundation for more complex things--
+	including the use of a TABLE for layout purposes.  The table definitions in this
+	file make the assumption that you will be using tables for thier declared purpose:
+	displaying tabular data.
+
+	If you are looking for a baseline stylesheet using tables for grid layout, you will
+	need to supply your own layout rules to override the ones in this stylesheet.
+	
+	Applications using Dojo will function correctly without including this
+	file, but it should provide sane defaults for many common things that page
+	authors often need to set up manually.
+
+	The Dojo Core uses this stylesheet to quickly style HTML-based tests and demos.  Feel
+	free to use it as you will.
+*/
+
+/*****************************************************************************************/
+
+/*
+	The below are borrowed from YUI's reset style sheets for pages and fonts.
+	We've verified w/ the YUI development team that these are entirely
+	copyright Yahoo, written entirely by Nate Koechley and Matt Sweeney without
+	external contributions.
+
+	Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+	Code licensed under the BSD License:
+	http://developer.yahoo.net/yui/license.txt
+	version: 2.2.1
+*/
+
+body, div, dl, dt, dd, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+}
+
+fieldset, img {
+	border: 0 none;
+}
+
+address, caption, cite, code, dfn, th, var {
+	font-style: normal; 
+	font-weight: normal;
+}
+
+caption, th {
+	text-align: left;
+}
+
+q:before, q:after {
+	content:"";
+}
+
+abbr, acronym {
+	border:0;
+}
+/* End YUI imported code. */
+
+/*****************************************************************************************/
+
+/* 
+	Begin Dojo additions.
+
+	Style definitions, based loosely on the Dijit Tundra theme.
+	Relative unit calculations based on "Compose to a Vertical Rhythm",
+	by Richard Rutter (http://24ways.org/2006/compose-to-a-vertical-rhythm)
+
+	If changing the font size, make sure you do it in both
+	percent and px (% for IE, px for everything else). 
+	% value based on default size of 16px (in most browsers).
+	So if you want the default size to be 14px, set the 
+	% to 87% (14 / 16 = 0.875).
+
+	Typical values:
+	10px: 62.5%
+	11px: 69% (68.75)
+	12px: 75%
+	13px: 81.25%
+	14px: 87.5%
+	16px: 100%
+
+	Default: 12px
+*/
+body { 
+	font: 12px Myriad,Helvetica,Tahoma,Arial,clean,sans-serif; 
+	*font-size: 75%;
+}
+
+/* Headings */
+h1 {
+	font-size: 1.5em; 
+	font-weight: normal;
+	line-height: 1em; 
+	margin-top: 1em;
+	margin-bottom:0;
+}
+
+h2 { 
+	font-size: 1.1667em; 
+	font-weight: bold; 
+	line-height: 1.286em; 
+	margin-top: 1.929em; 
+	margin-bottom:0.643em;
+}
+
+h3, h4, h5, h6 {
+	font-size: 1em; 
+	font-weight: bold; 
+	line-height: 1.5em; 
+	margin-top: 1.5em; 
+	margin-bottom: 0;
+}
+
+/* paragraphs, quotes and lists */
+p { 
+	font-size: 1em; 
+	margin-top: 1.5em; 
+	margin-bottom: 1.5em; 
+	line-height: 1.5em;
+}
+
+blockquote { 
+	font-size: 0.916em; 
+	margin-top: 3.272em; 
+	margin-bottom: 3.272em; 
+	line-height: 1.636em; 
+	padding: 1.636em; 
+	border-top: 1px solid #ccc; 
+	border-bottom: 1px solid #ccc;
+}
+
+ol li, ul li { 
+	font-size: 1em; 
+	line-height: 1.5em; 
+	margin: 0;
+}
+
+/* pre and code */
+pre, code { 
+	font-size:115%;
+	*font-size:100%;
+	font-family: Courier, "Courier New"; 
+	background-color: #efefef; 
+	border: 1px solid #ccc;
+}
+
+pre { 
+	border-width: 1px 0; 
+	padding: 1.5em;
+}
+
+/*
+	Tables
+
+	Note that these table definitions make the assumption that you are using tables
+	to display tabular data, and NOT using tables as layout mechanisms.  If you are
+	using tables for layout, you will probably want to override these rules with
+	more specific ones.
+
+	These definitions make tabular data look presentable, particularly when presented
+	inline with paragraphs.
+*/
+table {  font-size:100%; }
+
+table.dojoTabular { 
+	border-collapse: collapse; 
+	border-spacing: 0; 
+	border: 1px solid #ccc; 
+	margin: 0 1.5em;
+}
+
+.dojoTabular th { 
+	text-align: center; 
+	font-weight: bold;
+}
+
+table.dojoTabular thead, table.dojoTabular tfoot { 
+	background-color: #efefef; 
+	border: 1px solid #ccc; 
+	border-width: 1px 0; 
+}
+
+table.dojoTabular thead tr th,
+table.dojoTabular thead tr td,
+table.dojoTabular tbody tr td,
+table.dojoTabular tfoot tr td { 
+	padding: 0.25em 0.5em;
+}
+/*
+ * Force the vertical scrollbar to appear to avoid 
+ * horizontal jumping caused by page reflows
+ */
+html {
+	overflow-y: scroll;
+}
+body {
+	min-width: 860px;
+}
+.swe-app-internal-ProgressIndicator {
+	background-color: #DBEB8F;
+	position: absolute;
+	right: 18px;
+	z-index: 500;
+	margin-top: 1px;
+	padding: 0.2em;
+	-moz-border-radius: 3px;
+}
+.dijitDialog {
+	z-index: 10000;
+}
+a {
+	color: #005C87;
+	text-decoration: none;
+}
+a:hover {
+	color: #8A9084;
+	text-decoration: underline;
+}
+a.actionLink {
+	color: #85852C;
+}
+a.actionLink:hover {
+	color: #676532;
+}
+.dijitMenu {
+	border: 1px solid #CCCC99 !important;
+}
+.dijitMenu .dijitMenuItem, .swe-app-body .dijitMenu .dijitMenuSeparator {
+	background-color: white !important;
+}
+.dijitMenu .dijitMenuSeparatorTop {
+	border-bottom: 1px solid #CECFCE !important;
+}
+.dijitMenu .dijitMenuItemHover {
+	background-color: #E9E49F !important;
+	color: black !important;
+}
+.dijitMenuItemIcon {
+	width: 32px !important;
+}
+.dijitMenu .dijitMenuItemLabel:focus, .dijitMenu .dijitMenuItem:focus {
+	outline-style: none !important;
+}
+.dijit_a11y .dijitMenu .dijitMenuItemLabel:focus, .dijit_a11y .dijitMenu .dijitMenuItem:focus {
+	outline-style: dotted !important;
+}
+/*
+ * This file prevents all the framework pieces from printing, so that only what
+ * is visible in the content area will print.
+ */
+@media print {
+	
+	.swe-app-Banner, .swe-app-Navbar, .swe-app-Footer, .swe-app-skip, .swe-app-sweUI-top-border, .swe-app-sweUI-bottom-border {
+		display: none !important;
+	}
+	.swe-app-sweUI table.content-expand-to-fit td.swe-app-sweUI-wrapper-cell {
+		overflow: visible !important;
+		height: auto !important;
+	}
+	
+	/* hide left panel */
+	.swe-ui-SideNavigationLayout {
+		white-space: normal !important;
+	}
+	.swe-ui-SideNavigationLayout-navArea {
+		display: none !important;
+	}
+	.swe-ui-SideNavigationLayout-showHideControl {
+		display: none !important;
+	}
+	.swe-ui-SideNavigationLayout-contentArea {
+		display: block !important;
+	}
+	.swe-ui-SideNavigationLayout-content-wrapper {
+		width: auto !important;
+	}
+	/* hide firebug console for testing */
+	.firebug {
+		display: none !important;
+	}
+}
+
+/*
+ * Overridable top-level styles for swe Ajax Framework-based applications.
+ * 
+ * Note: the swe Ajax Framework also loads the default styles from dojo.css.
+ */
+
+/* Reset font sizes to ~ 10pt */
+body {
+	font-family: Arial, sans-serif;
+	font-size: 75%;
+}
+
+/* force form controls to inherit font-size */
+button, input, select, textarea {
+	font-size: 1em;
+	font-family: inherit;
+}
+
+/*
+ * Internal top-level styles for the swe Ajax Framework.
+ *
+ * Note: these styles should NOT be overridden and are subject to change without
+ * notice.
+ */
+
+html, body {
+	height: 100%;
+}
+
+#net-swe-ajax-WorkbenchRoot {
+	position: relative;
+}
+
+#net-swe-ajax-InitialLoadMessage {
+	width: 100%;
+	color: #D0D0D0;
+	font-size: 2em;
+	text-align: center;
+	position: absolute;
+	top: 40%;
+	z-index: 999;
+}
+.net-swe-ajax-block {
+	display: block;
+	word-wrap: break-word;
+}
+.net-swe-ajax-hidden {
+	display: none !important;
+}
+.dijitPopup div, .dijitPopup table {
+	opacity: 1 !important;
+}
+.dijit_a11y.swe-app-body {
+	background-color: #2E5589;
+}
+.swe-app-sweUI {
+	position: relative;
+	padding: 0 10px;
+	zoom: 1;
+}
+.swe-app-sweUI table.content-expand-to-fit {
+	width: 100%;
+	border-spacing: 0;
+	border-collapse: collapse;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+.swe-app-sweUI table.content-expand-to-fit td.swe-app-sweUI-left-border {
+	width: 2px;
+	background: url('/swe/web/swe.app/graphics/sweUI/content-border-left.png/_ver1.0.0.I200906032314') right repeat-y;
+}
+.swe-app-sweUI table.content-expand-to-fit td.swe-app-sweUI-wrapper-cell {
+	vertical-align: top;
+	overflow: hidden;
+	background-color: white;
+	height: 500px;
+	zoom: 1;
+	outline-style: none;
+}
+.swe-app-sweUI table.content-expand-to-fit td .swe-app-sweUI-spacer {
+	width: 2px;
+}
+.swe-app-sweUI table.content-expand-to-fit td.swe-app-sweUI-right-border {
+	position: relative;
+	width: 2px !important;
+	background: url('/swe/web/swe.app/graphics/sweUI/content-border-right.png/_ver1.0.0.I200906032314') left repeat-y;
+}
+.swe-app-sweUI table.content-expand-to-fit .swe-app-sweUI-top-border .left {
+	background: url('/swe/web/swe.app/graphics/sweUI/content-corner.png/_ver1.0.0.I200906032314') bottom right;
+	height: 2px;
+	width: 2px;
+}
+.swe-app-sweUI table.content-expand-to-fit .swe-app-sweUI-top-border .middle {
+	background: url('/swe/web/swe.app/graphics/sweUI/content-border-top.png/_ver1.0.0.I200906032314');
+	height: 2px;
+	line-height: 1px;
+	font-size: 1px;
+}
+.swe-app-sweUI table.content-expand-to-fit .swe-app-sweUI-top-border .right {
+	background: url('/swe/web/swe.app/graphics/sweUI/content-corner.png/_ver1.0.0.I200906032314') bottom left;
+	height: 2px;
+	width: 2px;
+}
+.swe-app-sweUI table.content-expand-to-fit .swe-app-sweUI-bottom-border .left {
+	background: url('/swe/web/swe.app/graphics/sweUI/content-corner.png/_ver1.0.0.I200906032314') top right;
+	height: 2px;
+	width: 2px;
+}
+.swe-app-sweUI table.content-expand-to-fit .swe-app-sweUI-bottom-border .middle {
+	background: url('/swe/web/swe.app/graphics/sweUI/content-border-bottom.png/_ver1.0.0.I200906032314');
+	height: 2px;
+}
+.swe-app-sweUI table.content-expand-to-fit .swe-app-sweUI-bottom-border .right {
+	background: url('/swe/web/swe.app/graphics/sweUI/content-corner.png/_ver1.0.0.I200906032314') top left;
+	height: 2px;
+	width: 2px;
+}
+.dj_ie6 .swe-app-sweUI table.content-expand-to-fit .swe-app-sweUI-top-border, .dj_ie6 .swe-app-sweUI table.content-expand-to-fit .swe-app-sweUI-bottom-border {
+	display: none;
+}
+.dj_ie6 .swe-app-sweUI table.content-expand-to-fit .swe-app-sweUI-left-border, .dj_ie6 .swe-app-sweUI table.content-expand-to-fit .swe-app-sweUI-right-border {
+	visibility: hidden;
+}
+.dj_ie6 .swe-app-sweUI table.content-expand-to-fit .swe-app-sweUI-wrapper-cell {
+	border: 1px solid #bfc9cf;
+}
+.swe-app-skip a {
+	position:absolute;
+	height:0;
+	width:0;
+	overflow:hidden;
+}
+.swe-app-skip a:active, .swe-app-skip a:focus {
+	background-color: #FFDEDE;
+	border: 1px solid #FFBFBF;
+	color: #FF0000;
+	font-weight:bold;
+	height:auto;
+	left:220px;
+	overflow:visible;
+	padding: 3px 5px;
+	position:absolute;
+	top:6px;
+	width:175px;
+	z-index:1000;
+}
+.net-swe-ajax-errorPage {
+	position: relative;
+	padding: 5px 9px 3px 9px;
+	height: auto !important;
+	min-height: 53px;
+	zoom: 1;
+}
+.net-swe-ajax-errorPage .title {
+	margin-top: 5px;
+	padding-left: 0px;
+	color: red;
+	font-size: 16pt;
+}
+.net-swe-ajax-errorPage a {
+	color: #85852C;
+	text-decoration: none;
+}
+.net-swe-ajax-errorPage a:hover {
+	color: #676532;
+	text-decoration: underline;
+}
+.net-swe-ajax-errorPage p {
+	margin-top: 12px;
+	margin-bottom: 21px;
+}
+.net-swe-ajax-errorPage .fine-print {
+	color: #666666;
+	font-size: 8pt;
+}
+.swe-app-Banner {
+	position: relative;
+	overflow: visible;
+	margin-top: -2px;
+	zoom: 1;
+	font-family: Tahoma, Arial, sans-serif;
+}
+.swe-app-Banner .banner {
+	overflow: hidden;
+}
+.swe-app-Banner .left-buttons {
+	float: left;
+}
+.dijit_a11y .swe-app-Banner .left-buttons img, .dijit_a11y .swe-app-Banner .right-menus img {
+	line-height: 31px;
+}
+.swe-app-Banner .banner .top-border {
+	position: relative;
+	background: url('/swe/web/swe.app/graphics/sweUI/banner-top-left.png/_ver1.0.0.I200906032314') no-repeat top left;
+	padding-left: 4px;
+	font-size: 1px;
+}
+.dj_ie6 .swe-app-Banner .banner .top-border {
+	background: url('/swe/web/swe.app/graphics/sweUI/banner-top-left-ie6.png/_ver1.0.0.I200906032314') no-repeat top left;
+}
+.swe-app-Banner .banner .top-border div {
+	position: relative;
+	background: url('/swe/web/swe.app/graphics/sweUI/banner-top-right.png/_ver1.0.0.I200906032314') no-repeat top right;
+	padding-right: 4px;
+}
+.dj_ie6 .swe-app-Banner .banner .top-border div {
+	background: url('/swe/web/swe.app/graphics/sweUI/banner-top-right-ie6.png/_ver1.0.0.I200906032314') no-repeat top right;
+}
+.swe-app-Banner .banner .top-border div div {
+	position: relative;
+	background: url('/swe/web/swe.app/graphics/sweUI/banner-top.png/_ver1.0.0.I200906032314') repeat-x top;
+	height: 3px;
+}
+.dj_ie6 .swe-app-Banner .banner .top-border div div {
+	background: url('/swe/web/swe.app/graphics/sweUI/banner-top-ie6.png/_ver1.0.0.I200906032314') repeat-x top;
+}
+.swe-app-Banner .banner .left {
+	position: relative;
+	background: url('/swe/web/swe.app/graphics/sweUI/banner-bottom-left.png/_ver1.0.0.I200906032314') no-repeat bottom left;
+	padding-left: 5px;
+}
+.dj_ie6 .swe-app-Banner .banner .left {
+	background: url('/swe/web/swe.app/graphics/sweUI/banner-bottom-left-ie6.png/_ver1.0.0.I200906032314') no-repeat bottom left;
+}
+.swe-app-Banner .banner .right {
+	position: relative;
+	background: url('/swe/web/swe.app/graphics/sweUI/banner-bottom-right.png/_ver1.0.0.I200906032314') no-repeat bottom right;
+	padding-right: 5px;	
+}
+.dj_ie6 .swe-app-Banner .banner .right {
+	background: url('/swe/web/swe.app/graphics/sweUI/banner-bottom-right-ie6.png/_ver1.0.0.I200906032314') no-repeat bottom right;
+}
+.swe-app-Banner .banner .middle {
+	position: relative;
+	background: url('/swe/web/swe.app/graphics/sweUI/banner-bottom.png/_ver1.0.0.I200906032314') repeat-x bottom;
+	color: white;
+	padding: 0 0 4px 0;
+	min-height: 31px;
+	max-height: 46px;
+}
+.dj_ie6 .swe-app-Banner .banner .middle {
+	background: url('/swe/web/swe.app/graphics/sweUI/banner-bottom-ie6.png/_ver1.0.0.I200906032314') repeat-x bottom;
+}
+.swe-app-Banner .banner .content {
+	position: relative;
+	zoom: 1;
+	margin-right: -3px;
+}
+.swe-app-Banner .banner .content a {
+	color: white;
+	text-decoration: none;
+}
+.swe-app-Banner .banner .content a:hover {
+	text-decoration: underline;
+}
+.swe-app-Banner .banner .content .header-left {
+	float: left;
+}
+.swe-app-Banner .banner .content .header-left .product-icon {
+	float: left;
+	position: relative;
+	margin-right: 3px;
+}
+.swe-app-Banner .banner .content .header-left .product-title {
+	float: left;
+	margin-top: 5px;
+	margin-left: 2px;
+}
+.swe-app-Banner .banner .content .header-left .product-title img {
+	font-family: Myriad, Tahoma, Arial;
+	font-size: 16pt;
+}
+.swe-app-Banner .banner .content .header-right {
+	float: right;
+}
+.dj_ff2 .swe-app-Banner .banner .content .header-inner {
+	position:absolute;
+	left:0pt;
+	top:0pt;
+}
+.swe-app-Banner .banner .content a.menu {
+	position: relative;
+	height: 31px;
+	width: 41px;
+	padding-left: 1px;
+	padding-right: 1px;
+	display: block;
+	text-align: center;
+	line-height: 1px;
+}
+.swe-app-Banner .banner .content a.menu-narrow {
+	width: 31px;
+}
+.swe-app-Banner .content a.menu .caret {
+	filter: alpha(opacity=40);
+	-moz-opacity: 0.4;
+	opacity: 0.4;
+	margin-left: 0;
+	margin-right: 3px;
+}
+.swe-app-Banner .content a.menu-open .caret, .swe-app-Banner .banner .content a:hover .caret {
+	filter: ;
+	-moz-opacity: 1;
+	opacity: 1;
+}
+.swe-app-Banner .banner .content a.menu:hover, .swe-app-Banner .banner .content a.menu-open, .swe-app-Banner .banner .content a.selected {
+	background-image: url('/swe/web/swe.app/graphics/sweUI/common-nav-highlight.png/_ver1.0.0.I200906032314');
+}
+.swe-app-Banner .banner .content a.menu-open, .swe-app-Banner .banner .content a.selected {
+	outline-style: none;
+}
+.swe-app-Banner .banner .content a.menu-narrow:hover, .swe-app-Banner .banner .content a.menu-narrow-open, .swe-app-Banner .banner .content a.selected.menu-narrow {
+	background-image: url('/swe/web/swe.app/graphics/sweUI/common-nav-highlight-narrow.png/_ver1.0.0.I200906032314');
+}
+.swe-app-Banner-helpmenu .helpIcon {
+	background: url('/swe/web/swe.app/graphics/sweUI/icons/systemhelp.gif/_ver1.0.0.I200906032314') no-repeat center center;
+}
+.swe-app-Banner .banner .header-right .right-text {
+	position: relative;
+	white-space: nowrap;
+	line-height: 31px;
+	float: right;
+	color: white;
+}
+.swe-app-Banner .banner .header-right .right-menus {
+	position: relative;
+	float: right;
+}
+.swe-app-Banner-menu {
+	position: relative;
+	top: 3px;
+}
+.swe-app-BannerButton-menu {
+	position: relative;
+	left: 3px;
+	top: -1px;
+}
+.swe-app-BannerButton {
+	float: left;
+	display: block;
+	position: relative;
+	z-index: 1;
+	padding-right: 1px;
+	margin-right: -3px;
+	cursor: pointer;
+}
+a.swe-app-BannerButton {
+	outline-style: none;
+}
+a.swe-app-BannerButton:focus {
+	outline-style: dotted;
+	outline-color: #999999;
+}
+.swe-app-BannerButton span {
+	display: block;
+}
+.swe-app-BannerButton .top-border {
+	background: url('/swe/web/swe.app/graphics/BannerButton/bb-top-left.png/_ver1.0.0.I200906032314') no-repeat top left;
+	padding-left: 5px;
+	font-size: 1px;
+}
+.swe-app-BannerButton.selected .top-border, .swe-app-BannerButton.selected:hover .top-border {
+	background-image: url('/swe/web/swe.app/graphics/BannerButton/bb-top-left-sel.png/_ver1.0.0.I200906032314');
+}
+a.swe-app-BannerButton:hover .top-border, a.swe-app-BannerButton.menu:hover .top-border, a.swe-app-BannerButton.menu-open .top-border {
+	background-image: url('/swe/web/swe.app/graphics/BannerButton/bb-top-left-over.png/_ver1.0.0.I200906032314');
+}
+.swe-app-BannerButton .top-border span {
+	background: url('/swe/web/swe.app/graphics/BannerButton/bb-top-right.png/_ver1.0.0.I200906032314') no-repeat top right;
+	padding-right: 4px;
+}
+.swe-app-BannerButton.selected .top-border span, .swe-app-BannerButton.selected:hover .top-border span {
+	background-image: url('/swe/web/swe.app/graphics/BannerButton/bb-top-right-sel.png/_ver1.0.0.I200906032314');
+}
+a.swe-app-BannerButton:hover .top-border span, a.swe-app-BannerButton.menu:hover .top-border span, a.swe-app-BannerButton.menu-open .top-border span {
+	background-image: url('/swe/web/swe.app/graphics/BannerButton/bb-top-right-over.png/_ver1.0.0.I200906032314');
+}
+.swe-app-BannerButton .top-border span span {
+	background: url('/swe/web/swe.app/graphics/BannerButton/bb-top.png/_ver1.0.0.I200906032314') repeat-x top;
+	padding-top: 3px;
+}
+.swe-app-BannerButton.selected .top-border span span, .swe-app-BannerButton.selected:hover .top-border span span {
+	background-image: url('/swe/web/swe.app/graphics/BannerButton/bb-top-sel.png/_ver1.0.0.I200906032314');
+}
+a.swe-app-BannerButton:hover .top-border span span, a.swe-app-BannerButton.menu:hover .top-border span span, a.swe-app-BannerButton.menu-open .top-border span span {
+	background-image: url('/swe/web/swe.app/graphics/BannerButton/bb-top-over.png/_ver1.0.0.I200906032314');
+}
+.swe-app-BannerButton .left {
+	position: relative;
+	background: url('/swe/web/swe.app/graphics/BannerButton/bb-bottom-left.png/_ver1.0.0.I200906032314') no-repeat bottom left;
+	padding-left: 5px;
+}
+.swe-app-BannerButton.selected .left, .swe-app-BannerButton.selected:hover .left {
+	background-image: url('/swe/web/swe.app/graphics/BannerButton/bb-bottom-left-sel.png/_ver1.0.0.I200906032314');
+}
+a.swe-app-BannerButton:hover .left, a.swe-app-BannerButton.menu:hover .left, a.swe-app-BannerButton.menu-open .left  {
+	background-image: url('/swe/web/swe.app/graphics/BannerButton/bb-bottom-left-over.png/_ver1.0.0.I200906032314');
+}
+.swe-app-BannerButton .right {
+	position: relative;
+	background: url('/swe/web/swe.app/graphics/BannerButton/bb-bottom-right.png/_ver1.0.0.I200906032314') no-repeat bottom right;
+	padding-right: 4px;	
+}
+.swe-app-BannerButton.selected .right, .swe-app-BannerButton.selected:hover .right {
+	background-image: url('/swe/web/swe.app/graphics/BannerButton/bb-bottom-right-sel.png/_ver1.0.0.I200906032314');
+}
+a.swe-app-BannerButton:hover .right, a.swe-app-BannerButton.menu:hover .right, a.swe-app-BannerButton.menu-open .right {
+	background-image: url('/swe/web/swe.app/graphics/BannerButton/bb-bottom-right-over.png/_ver1.0.0.I200906032314');
+}
+.swe-app-BannerButton .middle {
+	position: relative;
+	background: url('/swe/web/swe.app/graphics/BannerButton/bb-bottom.png/_ver1.0.0.I200906032314') repeat-x bottom;
+	color: white;
+	padding: 0 0 4px 0;
+	min-height: 31px;
+	max-height: 46px;
+}
+.swe-app-BannerButton.selected .middle, .swe-app-BannerButton.selected:hover .middle {
+	background-image: url('/swe/web/swe.app/graphics/BannerButton/bb-bottom-sel.png/_ver1.0.0.I200906032314');
+}
+a.swe-app-BannerButton:hover .middle, a.swe-app-BannerButton.menu:hover .middle,a.swe-app-BannerButton.menu-open .middle {
+	background-image: url('/swe/web/swe.app/graphics/BannerButton/bb-bottom-over.png/_ver1.0.0.I200906032314');
+}
+.swe-app-BannerButton .content {
+	position: relative;
+	zoom: 1;
+	overflow: hidden;
+	margin-bottom: -10px;
+}
+/*
+	Essential styles that themes can inherit.
+	In other words, works but doesn't look great.
+*/
+
+
+
+/****
+		GENERIC PIECES
+ ****/
+
+.dijitReset {
+	/* Use this style to null out padding, margin, border in your template elements
+		so that page specific styles don't break them.
+		- Use in all TABLE, TR and TD tags.	
+	*/
+	margin:0;
+	border:0;
+	padding:0;
+	line-height:normal;
+	font: inherit;
+	color: inherit;
+}
+
+.dijitInline {
+	/*  To inline block elements.
+		Similar to InlineBox below, but this has fewer side-effects in Moz.
+		Also, apparently works on a DIV as well as a FIELDSET.
+	*/
+	display:-moz-inline-box;		/* FF2 */
+	display:inline-block;			/* webkit and FF3 */
+	#zoom: 1; /* set hasLayout:true to mimic inline-block */
+	#display:inline; /* don't use .dj_ie since that increases the priority */
+	border:0;
+	padding:0;
+	vertical-align:middle;
+	#vertical-align: auto;	/* makes TextBox,Button line up w/native counterparts on IE6 */
+}
+
+.dj_ie INPUT.dijitTextBox,
+.dj_ie .dijitInputField INPUT {
+	font-size: 100%;
+}
+
+.dj_ie .dijitInputField INPUT { /* try to get rid of IE implicit margin around INPUT */
+	margin: -1px 0 !important;
+}
+.dj_iequirks .dijitInputField INPUT { /* try to get rid of IE implicit margin around INPUT */
+	margin-top: -3px !important;
+}
+
+.dijitInlineTable {
+	/* To inline tables with a given width set (otherwise, use dijitInline above)
+	 * Must also put style="-moz-inline-stack" on the node itself to workaround FF2 bugs
+	 */
+	display: -moz-inline-stack;	/* FF2 */
+	display:inline-table;
+	display:inline-block;		/* webkit and FF3 */
+	#zoom: 1; /* set hasLayout:true to mimic inline-block */
+	#display:inline; /* don't use .dj_ie since that increases the priority */
+	box-sizing: content-box; -moz-box-sizing: content-box;
+	border:0;
+	padding:0;
+}
+
+.dijitTeeny {
+	font-size:1px;
+	line-height:1px;
+}
+
+/*
+ * Popup items have a wrapper div (dijitPopup)
+ * with the real popup inside, and maybe an iframe too
+ */
+.dijitPopup {
+	position: absolute;
+	background-color: transparent;
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+.dijit_a11y .dijitPopup,
+.dijit_ally .dijitPopup div,
+.dijit_a11y .dijitPopup table,
+.dijit_a11y .dijitTooltipContainer {
+	background-color: white !important;
+}
+
+.dijitInputField {
+	overflow:hidden;
+	#zoom:1;
+}
+
+.dijitPositionOnly {
+	/* Null out all position-related properties */
+	padding: 0 !important;
+	border: 0 !important;
+	background-color: transparent !important;
+	background-image: none !important;
+	height: auto !important;
+	width: auto !important;
+}
+
+.dijitNonPositionOnly {
+	/* Null position-related properties */
+	float: none !important;
+	position: static !important;
+	margin: 0 0 0 0 !important;
+	vertical-align: middle !important;
+}
+
+.dijitBackgroundIframe {
+	/*
+	 * iframe used for FF2 in high-contrast mode to prevent menu
+	 * being transparent
+	 */
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+.dijitClickableRegion {
+	/* An InlineEditBox in view mode (click this to edit the text) */
+	background-color: #e2ebf2;
+	cursor: text;
+}
+
+
+.dijitDisplayNone {
+	/* hide something.  Use this as a class rather than element.style so another class can override */
+	display:none !important;
+}
+
+.dijitContainer {
+	/* for all layout containers */
+	overflow: hidden;	/* need on IE so something can be reduced in size, and so scrollbars aren't temporarily displayed when resizing */
+}
+
+/****
+		A11Y
+ ****/
+.dijit_a11y * {
+	background-image:none !important;
+}
+
+.dijit_a11y .dijitCalendarIncrementControl .dijitA11ySideArrow {
+	padding-left:.2em;
+	visibility:visible !important;
+}
+.dj_ie6 .dijit_a11y .dijitCalendarIncrementControl {
+	font-size:.75em !important;
+}
+
+.dijit_a11y .dijitCalendarSelectedDate {
+	text-decoration:overline !important;
+}
+
+.dijitA11ySideArrow {
+	vertical-align:top;
+	margin-right:0em;
+	margin-left:.2em;
+	line-height:2em;
+	text-align:center;
+}
+
+.dijit_a11y .dijit * {
+	background:white !important;
+	color:black !important;
+}
+.dijit_a11y .dijitButtonNode {
+	border-color: black!important;
+	border-style: outset!important;
+	border-width: medium!important;
+}
+
+.dijit_a11y .dijitButtonDisabled .dijitButtonNode,
+.dijit_a11y .dijitDropDownButtonDisabled .dijitButtonNode,
+.dijit_a11y .dijitComboButtonDisabled .dijitButtonNode,
+.dijit_a11y .dijitComboBoxDisabled .dijitInputField,
+.dijit_a11y .dijitComboBoxDisabled .dijitButtonNode,
+.dijit_a11y .dijitSpinnerDisabled .dijitButtonNode,
+.dijit_a11y .dijitSpinnerDisabled .dijitInputField {
+	border-style: outset!important;
+	border-width: medium!important;
+	border-color: #999 !important;
+	color:#999 !important;
+}
+
+.dj_ff2 .dijit_a11y .dijitComboButton .dijitButtonContentsFocused,
+.dj_ff2 .dijit_a11y .dijitComboButton .dijitDownArrowButtonFocused {
+	border: 1px dotted black !important;
+}
+
+/* button inner contents - labels, icons etc. */
+.dijitButtonNode * {
+	vertical-align: middle;
+}
+.dijit_a11y .dijitArrowButtonInner {
+	width: 1.0em;
+	display: none !important;
+}
+.dijitButtonNode .dijitArrowButtonInner {
+	background:no-repeat center;
+	width: 16px;
+}
+.dijitComboBox .dijitArrowButtonInner {
+	display: block;
+}
+
+/* In high contrast mode, display the check symbol */
+.dijit_a11y .dijitToggleButtonChecked .dijitToggleButtonIconChar {
+	display: inline !important;
+}
+
+
+/****
+		3-element borders:  ( dijitLeft + dijitStretch + dijitRight )
+ ****/
+	
+.dijitLeft {
+	/* Left part of a 3-element border */
+	background-position:left top;
+	background-repeat:no-repeat;
+}
+
+.dijitStretch {
+	/* Middle (stretchy) part of a 3-element border */
+	white-space:nowrap;			/* MOW: move somewhere else */
+	background-repeat:repeat-x;
+}
+
+.dijitRight {
+	/* Right part of a 3-element border */
+	#display:inline;				/* IE7 sizes to outer size w/o this */
+	background-position:right top;
+	background-repeat:no-repeat;
+}
+
+.dijitButton,
+.dijitDropDownButton,
+.dijitComboButton {
+	/* outside of button */
+	margin: 0.2em;
+}
+
+.dijitToolbar .dijitButton,
+.dijitToolbar .dijitDropDownButton,
+.dijitToolbar .dijitComboButton {
+	margin: 0;
+}
+
+.dj_ie .dijitToolbar button,
+.dj_safari .dijitToolbar button {
+	/* FF adds implicit padding to buttons so make other browsers follow suit,
+	 * to avoid a bunch of browse specific rules in theme files
+	 */
+	padding: 1px 2px;
+}
+
+.dj_ie .dijitComboButton {
+	/* hack to get inline-table to vertically align w/other buttons */
+	margin-bottom: -3px;
+}
+
+.dj_safari .dijitToolbar .dijitDropDownButton {
+	padding-left: 0.3em;
+}
+.dj_gecko .dijitToolbar .dijitButtonNode::-moz-focus-inner {
+	padding:0;
+}
+
+.dijitButtonNode {
+	/* Node that is acting as a button -- may or may not be a BUTTON element */
+	border:1px solid gray;
+	margin:0;
+	line-height:normal;
+	cursor:pointer;
+	vertical-align: middle;
+	#vertical-align: auto;
+	text-align:center;
+	white-space: nowrap;
+}
+
+/*
+.dijitButtonNode button { 
+	cursor: pointer;
+} 
+*/
+
+.dj_ie .dijitButtonNode {
+	/* ensure hasLayout */
+	zoom: 1;
+}
+
+.dj_ie .dijitButtonNode button { 
+	/*  
+		disgusting hack to get rid of spurious padding around button elements 
+		on IE. MSIE is truly the web's boat anchor. 
+	*/ 
+	overflow: visible;
+	cursor: pointer;
+} 
+
+.dijitArrowButton {
+	/* Node that is acting as a arrow button -- drop down (spinner has its own treatment).  Also gets dijitButtonNode */
+	/* place AFTER dijitButtonNode so it overrides */
+	padding: 0 .4em;
+}
+DIV.dijitArrowButton {
+	float: right;
+}
+
+.dijitSpinner .dijitInputLayoutContainer .dijitArrowButton {
+	border-style: solid;
+	border-width: 0 0 0 1px !important;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	float: none;
+}
+.dijitSpinner .dijitInputLayoutContainer .dijitArrowButton {
+	position: absolute;
+	height: 50%;
+}
+.dijitSpinner .dijitInputLayoutContainer .dijitDownArrowButton {
+	top: none;
+	bottom: 0;
+	border-top-width: 1px !important;
+}
+.dijitSpinner .dijitInputLayoutContainer .dijitUpArrowButton {
+	top: 0;
+	bottom: none;
+}
+
+TABLE.dijitComboButton {
+	/* In ComboButton, borders are on each cell rather than on <table> itself */
+	border-collapse: collapse;
+	border:0;
+	padding:0;
+	margin:0;
+}
+.dijitToolbar .dijitComboButton {
+	/* because Toolbar only draws a border around the hovered thing */
+	border-collapse: separate;
+}
+
+.dj_ie BUTTON.dijitButtonNode {
+	overflow: visible; /* eliminates arbitrary left and right padding on buttons */
+}
+
+table .dijitButton .dijitButtonNode,
+table .dijitComboButton .dijitButtonNode {
+	#overflow:hidden; /* visible messes up if the button is inside a table on IE */
+}
+
+
+
+.dijitButtonNode IMG {
+	/* make text and images line up cleanly */
+	vertical-align:middle;
+	/*margin-bottom:.2em;*/
+}
+
+/******
+	TextBox related.
+	Everything that has an <input>
+*******/
+
+.dijitTextBox,
+.dijitComboBox,
+.dijitSpinner {
+	border: solid black 1px;
+	#overflow: hidden; /* #6027, #6067 */
+	width: 15em;	/* need to set default size on outer node since inner nodes say <input style="width:100%"> and <td width=100%>.  user can override */
+	vertical-align: middle;
+	#vertical-align: auto;	
+}
+
+.dijitTimeTextBox {
+	width: 8em;
+}
+
+/* rules for safari to deal with fuzzy blue focus border */
+.dijitTextBox input:focus,
+.dijitComboBox input:focus,
+.dijitSpinner input:focus {
+	outline: none;	/* blue fuzzy line looks wrong on combobox or something w/validation icon showing */
+}
+.dijitTextBoxFocused,
+.dijitComboBoxFocused,
+.dijitSpinnerFocused,
+.dijitTextAreaFocused {
+	/* should we display focus like we do on other browsers, or use the safari standard focus indicator?? */
+	outline: auto 5px -webkit-focus-ring-color;
+}
+.dijitTextAreaFocused div {
+	/* prevent dotted border on FF3 */
+	outline: none !important;
+}
+
+.dijitTextBox INPUT,
+.dijitComboBox INPUT,
+.dijitSpinner INPUT {
+	border-left: solid black 1px;	/* TODO: for RTL mode should be border-right */
+	display:inline;
+	position:static !important;
+	border:0 !important;	
+	margin:0 !important;
+	vertical-align:top !important;
+	visibility:visible !important;
+	background-color:transparent !important;
+	background-image:none !important;
+	width:100% !important;
+}
+
+/* Display an "X" for invalid input. Themes will override these rules to display an icon instead.
+*/
+.dijitValidationIcon {
+	visibility: hidden;
+	display: block;
+	padding: 0 2px;
+	float: right;
+	height: auto;
+}
+.dijitValidationIconText {
+	visibility: hidden;
+	display: none;
+	float:right;
+	font-family: sans-serif;
+	font-style:italic;
+	font-size: 0.45em;
+	line-height: 190%;
+}
+.dijit_a11y .dijitValidationIcon { display: none !important; }
+.dijit_a11y .dijitValidationIconText { display: block !important; }
+
+.dijitError .dijitValidationIcon,
+.dijitError .dijitValidationIconText {
+	visibility: visible;
+}
+
+.dijitTextBox .dijitArrowButton {
+	/* this is for a combo box with no arrow displayed; we set baseClass=TextBox */
+	display:none;
+}
+
+/****
+		dijit.form.CheckBox
+ 	 &
+  		dijit.form.RadioButton
+ ****/
+
+.dijitCheckBox,
+.dijitRadio,
+.dijitCheckBoxInput {
+	padding: 0;
+	border: 0;
+	width: 16px;
+	height: 16px;
+	background-position:center center;
+	background-repeat:no-repeat;
+	overflow: hidden;
+}
+
+.dijitCheckBox INPUT,
+.dijitRadio INPUT {
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+
+.dijitCheckBoxInput {
+	/* place the actual input on top, but all-but-invisible */
+	opacity: 0.01;
+}
+
+.dj_ie .dijitCheckBoxInput {
+	filter: alpha(opacity=0);
+}
+
+.dijit_a11y .dijitCheckBox,
+.dijit_a11y .dijitRadio {
+	width: auto;
+	height: auto;
+}
+.dijit_a11y .dijitCheckBoxInput {
+	opacity: 1;
+	filter: none;
+	width: auto;
+	height: auto;
+}
+
+
+/****
+		dijit.ProgressBar
+ ****/
+
+.dijitProgressBarEmpty{
+	/* outer container and background of the bar that's not finished yet*/
+	position:relative;overflow:hidden;
+	border:1px solid black; 	/* a11y: border necessary for high-contrast mode */
+	z-index:0;			/* establish a stacking context for this progress bar */
+}
+
+.dijitProgressBarFull {
+	/* outer container for background of bar that is finished */
+	position:absolute;
+	overflow:hidden;
+	z-index:-1;
+	top:0;
+	width:100%;
+}
+.dj_ie6 .dijitProgressBarFull {
+	height:1.6em;
+}
+
+.dijitProgressBarTile {
+	/* inner container for finished portion */
+	position:absolute;
+	overflow:hidden;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	margin:0;
+	padding:0;
+	width:auto;
+	height:auto;
+	background-color:#aaa;
+	background-attachment: fixed;
+}
+
+.dijit_a11y .dijitProgressBarTile{
+	/* a11y:  The border provides visibility in high-contrast mode */
+	border-width:4px;
+	border-style:solid;
+	background-color:transparent !important;
+}
+
+.dj_ie6 .dijitProgressBarTile {
+	/* width:auto works in IE6 with position:static but not position:absolute */
+	position:static;
+	/* height:auto or 100% does not work in IE6 */
+	height:1.6em;
+}
+
+.dijitProgressBarIndeterminate .dijitProgressBarLabel {
+	visibility:hidden;
+}
+
+.dijitProgressBarIndeterminate .dijitProgressBarTile {
+	/* animated gif for 'indeterminate' mode */
+}
+
+.dijitProgressBarIndeterminateHighContrastImage {
+	display:none;
+}
+
+.dijit_a11y .dijitProgressBarIndeterminate .dijitProgressBarIndeterminateHighContrastImage {
+	display:block;
+	position:absolute;
+	top:0;
+	bottom:0;
+	margin:0;
+	padding:0;
+	width:100%;
+	height:auto;
+}
+
+.dijitProgressBarLabel {
+	display:block;
+	position:static;
+	width:100%;
+	text-align:center;
+	background-color:transparent !important;
+}
+
+/****
+		dijit.Tooltip
+ ****/
+
+.dijitTooltip {
+	position: absolute;
+	z-index: 2000;
+	display: block;
+	/* make visible but off screen */
+	left: 50%;
+	top: -10000px;
+	overflow: visible;
+}
+
+.dijitTooltipContainer {
+	border: solid black 2px;
+	background: #b8b5b5;
+	color: black;
+	font-size: small;
+}
+
+.dijitTooltipFocusNode {
+	padding: 2px 2px 2px 2px;
+}
+
+.dijitTooltipConnector {
+	position: absolute;
+}
+
+.dijitTooltipData {
+	display:none;
+}
+/* MOW: using actual images at this time
+/* draw an arrow with CSS only * /
+.dijitTooltipConnector {
+	/* the border on the triangle * /
+	font-size: 0; line-height: 0%; width: 0;
+	border-top: none;
+	border-bottom: 14px solid black;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	top: -14px;
+	left: 3px;
+	z-index: 2;
+}
+
+.dijitTooltipConnector div {
+	/* the background of the triangle * /
+	font-size: 0; line-height: 0%; width: 0;
+	position: absolute;
+	border-bottom: 10px solid #b8b5b5;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	top: 6px;
+	left: -5px;
+	z-index: 3;
+}
+
+*/
+
+
+
+/* Layout widgets. This is essential CSS to make layout work (it isn't "styling" CSS)
+   make sure that the position:absolute in dijitAlign* overrides other classes */
+
+.dijitLayoutContainer{
+	position: relative;
+	display: block;
+	overflow: hidden;
+}
+
+body .dijitAlignTop,
+body .dijitAlignBottom,
+body .dijitAlignLeft,
+body .dijitAlignRight {
+	position: absolute;
+	overflow: hidden;
+}
+
+body .dijitAlignClient { position: absolute; }
+
+/*
+ * BorderContaienr
+ *
+ * .dijitBorderContainer is a stylized layout where panes have border and margin.
+ * .dijitBorderContainerNoGutter is a raw layout.
+ */
+.dijitBorderContainer, .dijitBorderContainerNoGutter {
+	position:relative;
+	overflow: hidden;
+}
+
+.dijitBorderContainerPane,
+.dijitBorderContainerNoGutterPane {
+	position: absolute !important;	/* !important to override position:relative in dijitTabContainer etc. */
+	z-index: 2;		/* above the splitters so that off-by-one browser errors don't cover up border of pane */
+}
+
+.dijitBorderContainer > .dijitTextArea {
+	/* On Safari, for SimpleTextArea inside a BorderContainer,
+		don't want to display the grip to resize */
+	resize: none;
+}
+
+.dijitGutter {
+	/* gutter is just a place holder for empty space between panes in BorderContainer */
+	position: absolute;
+	font-size: 1px;		/* needed by IE6 even though div is empty, otherwise goes to 15px */
+}
+
+/* SplitContainer
+
+	'V' == container that splits vertically (up/down)
+	'H' = horizontal (left/right)
+*/
+
+.dijitSplitter {
+	position: absolute;
+	overflow: hidden;
+	z-index: 1;		/* behind the panes */
+	background-color: #fff;
+	border-color: gray;
+	border-style: solid;
+	border-width: 0;
+	z-index: 11;
+}
+
+.dijitSplitterActive {
+	z-index: 11 !important;
+}
+
+.dijitSplitterCover{
+	position:absolute;
+	z-index:1;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+
+/* #6945: stop mouse events */
+.dj_ie .dijitSplitterCover{
+	background: white;
+	filter: alpha(opacity=0)
+}
+
+.dijitSplitterH {
+	height: 7px;
+	border-top:1px;
+	border-bottom:1px;
+	cursor: ns-resize;
+}
+.dijitSplitterV {
+	width: 7px;
+	border-left:1px;
+	border-right:1px;
+	cursor: ew-resize;
+}
+.dijitSplitContainer{
+	position: relative;
+	overflow: hidden;
+	display: block;
+}
+
+.dijitSplitPane{
+	position: absolute;
+}
+
+.dijitSplitContainerSizerH,
+.dijitSplitContainerSizerV {
+	position:absolute;
+	font-size: 1px;
+	cursor: move;
+	cursor: w-resize;
+	background-color: ThreeDFace;
+	border: 1px solid;
+	border-color: ThreeDHighlight ThreeDShadow ThreeDShadow ThreeDHighlight;
+	margin: 0;
+}
+
+.dijitSplitContainerSizerH .thumb, .dijitSplitterV .dijitSplitterThumb {
+	overflow:hidden;
+	position:absolute;
+	top:49%;
+}
+
+.dijitSplitContainerSizerV .thumb, .dijitSplitterH .dijitSplitterThumb {
+	position:absolute;
+	left:49%;
+}
+
+.dijitSplitterShadow,
+.dijitSplitContainerVirtualSizerH,
+.dijitSplitContainerVirtualSizerV {
+	font-size: 1px;
+	background-color: ThreeDShadow;
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+	filter: Alpha(Opacity=50);
+	margin: 0;
+}
+
+.dj_ie .dijitSplitterV, .dijitSplitContainerVirtualSizerH {
+	cursor: w-resize;
+}
+.dj_ie .dijitSplitterH, .dijitSplitContainerSizerV, .dijitSplitContainerVirtualSizerV {
+	cursor: n-resize;
+}
+
+.dijit_a11y .dijitSplitterH {
+	border-top:1px solid #d3d3d3 !important;
+	border-bottom:1px solid #d3d3d3 !important;
+}
+.dijit_a11y .dijitSplitterV {
+	border-left:1px solid #d3d3d3 !important;
+	border-right:1px solid #d3d3d3 !important;
+}
+
+/* ContentPane */
+
+.dijitContentPane {
+	display: block;
+	overflow: auto;	/* if we don't have this (or overflow:hidden), then Widget.resizeTo() doesn't make sense for ContentPane */
+}
+/* TitlePane */
+.dijitTitlePane {
+	display: block;
+	overflow: hidden;
+}
+.dj_ie7 .dijitTitlePaneTextNode {
+	display:inline; 
+}
+
+/* Color Palette */
+
+.dijitColorPalette {
+	border:1px solid #999;
+	background:#fff;
+	-moz-border-radius:3pt;
+}
+
+img.dijitColorPaletteUnder {
+	border-style:none;
+	position:absolute;
+	left:0;
+	top:0;
+}
+.dijitColorPaletteInner {
+	position: relative;
+	overflow:hidden;
+	outline:0;
+}
+.dijitPaletteCell {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	overflow: hidden;
+	z-index: 10;
+	outline-width: 0;
+}
+.dijitPaletteImg {
+	width: 16px; /*This is the width of one color in the provided palettes. */
+	height: 14px; /* Height of one color in the provided palettes. */
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	overflow: hidden;
+	cursor: default;
+	border:1px solid #999;
+	/* -moz-border-radius:2pt; */
+}
+
+.dijitPaletteCellHighlight img {
+	width: 14px; /*This is the width of one color in the provided palettes. */
+	height: 12px; /* Height of one color in the provided palettes. */
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	overflow: hidden;
+	cursor: default;
+	border:2px solid #000;
+	outline:1px solid #dedede;
+	/* -moz-border-radius:0; */	
+}
+
+.dijit_a11y .dijitPaletteCell {
+	background-color:transparent !important;
+}
+.dijit_a11y .dijitPaletteImg {
+	background-color:transparent !important;
+}
+
+/* Accordion */
+
+.dijitAccordionPane {
+	overflow: hidden !important;	/* prevent spurious scrollbars */
+}
+
+.dijitAccordionPane .dijitAccordionBody {
+	overflow: auto;
+}
+
+/* #7104 - workaround IE jankyness with overflows */
+.dj_ie .dijitAccordionBody {
+	position:relative;
+}
+
+.dijitAccordionContainer {
+	border:1px solid #b7b7b7;
+	border-top:0 !important;
+}
+
+.dijitAccordionTitle:hover {
+	cursor: pointer;
+}
+
+/* images off, high-contrast mode styles */
+.dijitAccordionPane .dijitAccordionTitle .arrowTextUp,
+.dijitAccordionPane .dijitAccordionTitle .arrowTextDown {
+	display: none;
+	font-size: 0.65em;
+	font-weight: normal !important;
+}
+
+.dijit_a11y .dijitAccordionTitle .arrowTextUp {
+	display: inline;
+}
+.dijit_a11y .dijitAccordionTitle-selected .arrowTextDown {
+	display: inline;
+}
+
+.dijit_a11y .dijitAccordionTitle-selected .arrowTextUp {
+	display: none;
+}
+
+/* Calendar */
+
+.dijitCalendarContainer thead tr th, .dijitCalendarContainer thead tr td, .dijitCalendarContainer tbody tr td, .dijitCalendarContainer tfoot tr td {
+	padding: 0;
+}
+
+.dijitCalendarNextYear {
+	margin:0 0 0 0.55em;
+}
+
+.dijitCalendarPreviousYear {
+	margin:0 0.55em 0 0;
+}
+
+.dijitCalendarIncrementControl {
+	cursor:pointer;
+	cursor:hand;
+	width:1em;
+}
+
+.dijitCalendarDisabledDate {
+	color:gray !important;
+}
+
+.dijitCalendarBodyContainer tbody tr td {
+	cursor:pointer;
+	cursor:hand;
+}
+
+.dijitCalendarPreviousMonthDisabled,
+.dijitCalendarCurrentMonthDisabled,
+.dijitCalendarNextMonthDisabled {
+	cursor:default !important
+}
+
+.dijitCalendarDateTemplate,
+.dijitCalendarSelectedYear,
+.dijitCalendarNextYear,
+.dijitCalendarPreviousYear {
+	cursor:pointer;
+}
+
+.dijitCalendarMonthLabelSpacer {
+	/* don't display it, but make it affect the width */
+  	position: relative;
+  	height: 1px;
+  	overflow: hidden;
+  	visibility: hidden;
+}
+
+
+/* Menu */
+
+.dijitMenu {
+	border:1px solid black;
+	background-color:white;
+}
+.dijitMenuTable {
+	margin:1px 0;
+	border-collapse:collapse;
+	border-width:0;
+	background-color:white;
+}
+
+.dijitMenuItem{
+	text-align: left;
+	white-space: nowrap;
+	padding:.1em .2em;
+}
+
+.dijitMenuItemHover {
+	cursor:pointer;
+	cursor:hand;
+	background-color:black;
+	color:white;
+}
+
+.dijitMenuItemIcon {
+	position: relative;
+	background-repeat: no-repeat;
+}
+
+.dijitMenuItemDisabled * {
+	/* for a disabled menu item, just set it to mostly transparent */
+	opacity:0.3;
+	cursor:default;
+}
+.dj_ie .dijit_a11y .dijitMenuItemDisabled td,
+.dj_ie .dijitMenuItemDisabled *,
+.dj_ie .dijitMenuItemDisabled td {
+	color:gray !important;
+	filter: alpha(opacity=35);
+}
+
+.dijitMenuItemLabel {
+	position: relative;
+	vertical-align: middle;
+}
+
+.dijit_a11y .dijitMenuItemHover .dijitMenuItemLabel {
+	border-width: 1px;
+	border-style: solid;
+}
+.dijit_a11y .dijitMenuItemHover {
+	border: 1px #fff dotted !important;
+}
+
+.dijitMenuExpandA11y {
+	display: none;
+}
+.dijit_a11y .dijitMenuExpandA11y {
+	display: inline;
+}
+
+/* separator can be two pixels -- set border of either one to 0 to have only one */
+.dijitMenuSeparatorTop {
+	height: 50%;
+	margin: 0;
+	margin-top:3px;
+	font-size: 1px;
+}
+
+.dijitMenuSeparatorBottom {
+	height: 50%;
+	margin: 0;
+	margin-bottom:3px;
+	font-size: 1px;
+}
+
+/* the checked menu item */
+.dijitCheckedMenuItemIconChar {
+	vertical-align: middle;
+	visibility:hidden;
+}
+.dijitCheckedMenuItemIconChecked .dijitCheckedMenuItemIconChar {
+	visibility:visible !important;
+}
+.dijit_a11y .dijitCheckedMenuItemIconChar {
+	display:block !important;
+}
+
+
+/* Tab */
+
+.dijitTabContainerBottom-tabs,
+.dijitTabContainerTop-tabs,
+.dijitTabContainerLeft-tabs,
+.dijitTabContainerRight-tabs {
+	z-index:10;
+	overflow: visible !important;  /* so tabs can cover up border adjacent to container */
+}
+
+.dijitTabContainerBottom-container,
+.dijitTabContainerTop-container,
+.dijitTabContainerLeft-container,
+.dijitTabContainerRight-container {
+	z-index:0;
+	overflow: hidden;
+	border: 1px solid black;
+}
+
+.dijitTabContainerTop-tabs {
+	border-bottom: 1px solid black;
+}
+.dijitTabContainerTop-container {
+	border-top: 0px;
+}
+
+.dijitTabContainerLeft-tabs {
+	border-right: 1px solid black;
+}
+.dijitTabContainerLeft-container {
+	border-left: 0px;
+}
+
+.dijitTabContainerBottom-tabs {
+	border-top: 1px solid black;
+}
+.dijitTabContainerBottom-container {
+	border-bottom: 0px;
+}
+
+.dijitTabContainerRight-tabs {
+	border-left: 1px solid black
+}
+.dijitTabContainerRight-container {
+	border-right: 0px;
+}
+
+
+.dijitTab {
+	position:relative;
+	cursor:pointer;
+	white-space:nowrap;
+	z-index:3;
+}
+
+.dijitTabContainerTop-tabs .dijitTab {
+	top: 1px;	/* to overlap border on .dijitTabContainerTop-tabs */
+}
+.dijitTabContainerBottom-tabs .dijitTab {
+	top: -1px;	/* to overlap border on .dijitTabContainerBottom-tabs */
+}
+.dijitTabContainerLeft-tabs .dijitTab {
+	left: 1px;	/* to overlap border on .dijitTabContainerLeft-tabs */
+}
+.dijitTabContainerRight-tabs .dijitTab {
+	left: -1px;	/* to overlap border on .dijitTabContainerRight-tabs */
+}
+
+
+.dijitTabContainerTop-tabs .dijitTab,
+.dijitTabContainerBottom-tabs .dijitTab {
+	/* Inline-block */
+	display:-moz-inline-box;		/* FF2 */
+	display:inline-block;			/* webkit and FF3 */
+	#zoom: 1; /* set hasLayout:true to mimic inline-block */
+	#display:inline; /* don't use .dj_ie since that increases the priority */
+}
+
+.dijitTabInnerDiv {
+	position:relative;
+}
+
+.dijitTab .close {
+	display: inline-block;
+	cursor: default;
+	font-size: small;
+}
+
+/* images off, high-contrast mode styles */
+.dijitTab .closeText {
+	display:none;
+	padding: 0 2px;
+	margin: 0 2px;
+}
+
+.dijit_a11y .closeText {
+	display:inline;
+	margin-left:6px;
+}
+
+.dijit_a11y .dijitTab .dijitClosable .closeImage {
+	display:none;
+}
+
+.dijit_a11y .closeText:hover {
+	border:thin solid;
+}
+.dijit_a11y .dijitTabChecked {
+	border-style:dashed !important;
+}
+
+.dijit_a11y .dijitTabInnerDiv {
+	border-left:none !important;
+ }
+
+
+.dijitInlineEditor {
+	/* span around an inline-editable value when in edit mode */
+	position:relative;
+	vertical-align:bottom;
+}
+.dj_ie .dijitInlineEditor {
+	vertical-align:middle;
+}
+
+.dijitInlineValue {
+	/* span around an inline-editable value when NOT in edit mode */
+}
+
+.dijitInlineEditor .dijitButtonContainer {
+	/* div around the buttons -- makes them float below the field */
+	position:absolute;
+	right:0;
+	overflow:visible;
+}
+
+.dijitInlineEditor .saveButton,
+.dijitInlineEditor .cancelButton {
+}
+
+/* Tree */
+
+.dijitTreeRow, .dijitTreeContent {
+	white-space: nowrap;
+}
+
+.dijitTreeRow img {
+	/* make the expando and folder icons line up with the label */
+	vertical-align: middle;
+}
+
+.dijitTreeContent {
+    cursor: default;
+}
+
+.dijitExpandoText {
+	display: none;
+}
+
+.dijit_a11y .dijitExpandoText {
+	display: inline;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-family: monospace;
+	border-style: solid;
+	border-width: thin;
+	cursor: pointer;
+}
+
+.dijitTreeLabel {
+	margin: 0px 4px;
+}
+
+/* Dialog */
+
+.dijitDialog {
+	position: absolute;
+	z-index: 999;
+	padding: 1px;
+}
+
+.dijitDialogFixed div.dijitDialogTitleBar {
+	cursor:default; 
+}
+
+.dijitDialogUnderlayWrapper {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 998;
+	display: none;
+	background: transparent !important;
+}
+
+.dijitDialogUnderlay {
+	background: #eee;
+	opacity: 0.5;
+}
+
+.dj_ie .dijitDialogUnderlay {
+	filter: alpha(opacity=50);
+}
+
+/* images off, high-contrast mode styles */
+.dijit_a11y .dijitInputLayoutContainer,
+.dijit_a11y .dijitDialog {
+	opacity: 1 !important;
+	background-color: white !important;
+}
+
+.dijitDialog .closeText {
+	display:none;
+	/* for the onhover border in high contrast on IE: */
+	position:absolute;
+}
+
+.dijit_a11y .dijitDialog .closeText {
+	display:inline;
+}
+
+.dijitSliderMoveable {
+	z-index:99;
+	position:absolute !important;
+	display:block;
+	vertical-align:middle;
+}
+
+.dijitSliderMoveableH {
+	right:0;
+}
+
+.dijit_a11y div.dijitSliderImageHandle,
+.dijitSliderImageHandle {
+	margin:0;
+	padding:0;
+	position:absolute !important;
+	border:8px solid gray;
+	width:0;
+	height:0;
+}
+.dijit_a11y .dijitSliderFocused .dijitSliderImageHandle {
+	border:4px solid #000;
+	height:8px;
+	width:8px;
+}
+
+.dijitSliderImageHandleV {
+	top:-8px;
+	left:-6px;
+}
+
+.dijitSliderImageHandleH {
+	left:-8px;
+	top:-5px;
+	vertical-align:top;
+}
+
+.dijitSliderBar {
+	border-style:solid;
+	border-color:black;
+}
+
+.dijitSliderBarContainerV {
+	position:relative;
+	height:100%;
+	z-index:1;
+}
+
+.dijitSliderBarContainerH {
+	position:relative;
+	z-index:1;
+}
+
+.dijitSliderBarH {
+	height:4px;
+	border-width:1px 0;
+}
+
+.dijitSliderBarV {
+	width:4px;
+	border-width:0 1px;
+}
+
+.dijitSliderProgressBar {
+	background-color:red;
+	z-index:1;
+}
+
+.dijitSliderProgressBarV {
+	position:static !important;
+	height:0%;
+	vertical-align:top;
+	text-align:left;
+}
+
+.dijitSliderProgressBarH {
+	position:absolute !important;
+	width:0%;
+	vertical-align:middle;
+	overflow:visible;
+}
+
+.dijitSliderRemainingBar {
+	overflow:hidden;
+	background-color:transparent;
+	z-index:1;
+}
+
+.dijitSliderRemainingBarV {
+	height:100%;
+	text-align:left;
+}
+
+.dijitSliderRemainingBarH {
+	width:100% !important;
+}
+
+/* the slider bumper is the space consumed by the slider handle when it hangs over an edge */
+.dijitSliderBumper {
+	overflow:hidden;
+	z-index:1;
+}
+
+.dijitSliderBumperV {
+	width:4px;
+	height:8px;
+	border-width:0 1px;
+}
+
+.dijitSliderBumperH {
+	width:8px;
+	height:4px;
+	border-width:1px 0;
+}
+
+.dijitSliderBottomBumper,
+.dijitSliderLeftBumper {
+	background-color:red;
+}
+
+.dijitSliderTopBumper,
+.dijitSliderRightBumper {
+	background-color:transparent;
+}
+
+.dijitSliderDecorationH {
+	text-align:center;
+}
+
+.dijitSlider .dijitSliderButton {
+	font-family:monospace;
+	margin:0;
+	padding:0;
+	display:block;
+}
+
+.dijit_a11y .dijitSliderButtonInner {
+	visibility:visible !important;
+}
+
+.dijitSliderButtonContainer {
+	text-align:center;
+	height:0;
+}
+
+.dijitSlider .dijitButtonNode {
+	padding:0;
+	display:block;
+}
+
+.dijitRuleContainer {
+	position:relative;
+	overflow:visible;
+}
+
+.dijitRuleContainerV {
+	height:100%;
+	line-height:0;
+	float:left;
+	text-align:left;
+}
+
+.dj_opera .dijitRuleContainerV {
+	line-height:2%;
+}
+
+.dj_ie .dijitRuleContainerV {
+	line-height:normal;
+}
+
+.dj_gecko .dijitRuleContainerV {
+	margin:0 0 1px 0; /* mozilla bug workaround for float:left,height:100% block elements */
+}
+
+.dijitRuleMark {
+	position:absolute;
+	border:1px solid black;
+	line-height:0;
+	height:100%;
+}
+
+.dijitRuleMarkH {
+	width:0;
+	border-top-width:0 !important;
+	border-bottom-width:0 !important;
+	border-left-width:0 !important;
+}
+
+.dijitRuleLabelContainer {
+	position:absolute;
+}
+
+.dijitRuleLabelContainerH {
+	text-align:center;
+	display:inline-block;
+}
+
+.dijitRuleLabelH {
+	position:relative;
+	left:-50%;
+}
+
+.dijitRuleMarkV {
+	height:0;
+	border-right-width:0 !important;
+	border-bottom-width:0 !important;
+	border-left-width:0 !important;
+	width:100%;
+	left:0;
+}
+
+.dj_ie .dijitRuleLabelContainerV {
+	margin-top:-.55em;
+}
+
+/* Toolbar A11y */
+.dijit_a11y .dijitButtonContents .dijitButtonText {
+	display: inline !important;
+}
+
+.dijitTextArea {
+	width:100%;
+	overflow: auto;	/* w/out this IE's SimpleTextArea goes to overflow: scroll */
+}
+.dijitTextArea > DIV {
+	text-decoration:none;
+	overflow:auto;
+	min-height: 1.40em;
+}
+
+.dj_ie .dijitTextArea p {
+	margin-top:0;
+	margin-bottom:0;
+	line-height: normal !important;
+}
+
+.dijitToolbarSeparator {
+	height: 18px;
+	width: 5px;
+	padding: 0 1px;
+	margin: 0;
+}
+
+/* Editor */
+.dijitIEFixedToolbar {
+	position:absolute;
+	/* top:0; */
+	top: expression(eval((document.documentElement||document.body).scrollTop));
+}
+
+/* TimePicker */
+
+.dijitTimePickerItemInner {
+	text-align:center;
+	border:0;
+	padding:2px 8px 2px 8px;
+}
+
+.dijitTimePickerTick,
+.dijitTimePickerMarker {
+	border-bottom:1px solid gray;
+}
+
+.dijitTimePicker .dijitDownArrowButton {
+	border-top: none !important;
+}
+
+.dijitTimePickerTick {
+	color:#CCC;
+}
+
+.dijitTimePickerMarker {
+	color:black;
+	background-color:#CCC;
+}
+
+.dijitTimePickerItemSelected {
+	font-weight:bold;
+	color:#333;
+	background-color:#b7cdee;
+}
+
+.dijitTimePickerItemHover {
+	background-color:gray;
+	color:white;
+	cursor:pointer;
+}
+
+.dijit_a11y .dijitTimePickerItem {
+	border-bottom:1px solid #333;	
+}
+
+
+/* Disable the high contrast character */
+.dijitToggleButtonIconChar {
+	display:none !important;
+}
+.dijit_a11y .dijitToggleButtonIconChar {
+	display:inline !important;
+}
+
+.dijit_a11y .dijitToggleButtonIconChar {
+	visibility:hidden;
+}
+.dijit_a11y .dijitToggleButtonChecked .dijitToggleButtonIconChar {
+	visibility:visible !important;
+}
+
+.dijitArrowButtonChar {
+	display:none !important;
+}
+.dijit_a11y .dijitArrowButtonChar {
+	display:inline !important;
+}
+.dijitInputLayoutContainer {
+	position: relative;
+	overflow: hidden;
+}
+.dijitSpinnerButtonContainer {
+	float: right;
+	width: 18px;
+	position: relative;
+	overflow: hidden;
+}
+.dijitSpinner .dijitInputLayoutContainer .dijitArrowButton {
+	height: 50%;
+	width: 16px;
+	overflow: hidden;
+}
+.dijitSpinner .dijitInputLayoutContainer .dijitArrowButtonInner {
+	overflow: hidden;
+	line-height: 50%;
+}
+.dijit_a11y .dijitSpinner .dijitInputLayoutContainer .dijitArrowButton {
+	width: 100%;
+}
+.dijit_a11y .dijitSpinner .dijitArrowButton .dijitArrowButtonChar {
+	font-size: 0.4em;
+	vertical-align: top;
+}
+.dijit_a11y .dijitSpinnerButtonContainer {
+	width: 0.5em;
+	margin-left: 2px;
+	overflow: visible;
+}
+.dijit_a11y .dijitSpinnerButtonContainer .dijitButtonNode {
+	border-width: 1px 0px 0px 1px;
+	border-style: solid !important;
+}
+.dj_gecko-rtl .dijitInputField {
+	direction: ltr; /* Firefox needs this - probably a bug */
+}
+.dj_gecko-rtl .dijitInputField * {
+	direction: rtl; /* Firefox needs dijitInputField to be ltr, so fix the contained tags */
+}
+
+/* ComboBox */
+.dijitRtl .dijitMenuItem {
+	text-align: right;
+}
+
+/* Tree */
+
+.dijitRtl .dijitComboBox .dijitInputField {
+	border-right-width:1px !important;
+	border-left-width:0 !important;
+}
+
+/* Calendar */
+
+.dijitRtl .dijitCalendarNextYear {
+	margin:0 0.55em 0 0;
+}
+
+.dijitRtl .dijitCalendarPreviousYear {
+	margin:0 0 0 0.55em;
+}
+
+.dijitRtl .dijitProgressBarFull .dijitProgressBarLabel {
+	right:0; /* FF workaround */
+}
+
+.dijitRtl .dijitA11ySideArrow {
+	margin-left:1em;
+	margin-right:0;
+}
+
+/* Slider */
+
+.dijitRtl .dijitSliderImageHandleV {
+	left:auto;
+	right:-6px;
+}
+
+.dj_ie-rtl .dijitSliderImageHandleV {
+	right:-10px;
+}
+
+.dijitRtl .dijitSliderMoveableH {
+	right:auto;
+	left:0;
+}
+
+.dijitRtl .dijitRuleContainerV {
+	float:right;
+}
+
+.dj_gecko-rtl .dijitRuleContainerV {
+	float:left;
+}
+
+.dj_ie-rtl .dijitRuleContainerV {
+	text-align:right;
+}
+
+.dj_ie-rtl .dijitRuleLabelV {
+	text-align:left;
+}
+
+.dj_ie-rtl .dijitRuleLabelH {
+	zoom:1;
+}
+
+.dj_ie-rtl .dijitSliderProgressBarH {
+	right:0;
+	left:auto;
+}
+
+.dj_gecko-rtl .dijitSliderProgressBarH {
+	float:right;
+	right:0;
+	left:auto;
+}
+
+/* Spinner */
+
+.dijitRtl .dijitSpinner .dijitInputLayoutContainer .dijitArrowButton {
+	right: auto;
+	left: 0;
+	border-width: 0 1px 0 0 !important;
+}
+
+.dijitRtl .dijitSpinnerButtonContainer {
+	float: left;
+}
+
+.dijitRtl .dijit_a11y .dijitSpinnerButtonContainer {
+	margin-left: none;
+	margin-right: 2px;
+}
+
+.dijitRtl DIV.dijitArrowButton, .dijitRtl .dijitValidationIcon, .dijitRtl .dijitValidationIconText {
+	float: left;
+}
+
+/* ContentPane*/
+.dijitRtl .dijitContentPaneLoading, .dijitRtl .dijitContentPaneError {
+	background-position:right;
+	padding-right:25px;
+}
+/**** Disabled cursor *****/
+.tundra .dijitSliderDisabled *,
+.tundra .dijitDisabledClickableRegion,	/* a region the user would be able to click on, but it's disabled */
+.tundra .dijitSpinnerDisabled *,
+.tundra .dijitButtonDisabled *,
+.tundra .dijitDropDownButtonDisabled *,
+.tundra .dijitComboButtonDisabled *,
+.tundra .dijitComboBoxDisabled *
+{
+	cursor: not-allowed !important;
+}
+
+/* DnD avatar-specific settings */
+/* For now it uses a default set of rules. Some other DnD classes can be modified as well. */
+.tundra .dojoDndItemBefore {
+	border-top: 2px solid #369;
+}
+
+.tundra .dojoDndItemAfter {
+	border-bottom: 2px solid #369;
+}
+
+.tundra .dojoDndItemOver {
+	cursor:pointer;
+}
+
+.tundra table.dojoDndAvatar { -moz-border-radius: 0; border: 1px solid #ccc; border-collapse: collapse; background-color: #fff; font-size: 75%; color: black;}
+.tundra .dojoDndAvatar td	{ border: none; }
+.tundra .dojoDndAvatar tr	{ border: none; }
+.tundra .dojoDndAvatarHeader td	{ height: 20px; padding: 0 0 0 21px; }
+.tundra .dojoDndAvatarItem td { padding: 2px;}
+.tundra.dojoDndMove .dojoDndAvatarHeader	{background-color: #f58383; background-image: url('/swe/web/dijit/themes/tundra/images/dndNoMove.png/_ver1.2.0'); background-repeat: no-repeat; background-position: 2px center;}
+.tundra.dojoDndCopy .dojoDndAvatarHeader	{background-color: #f58383; background-image: url('/swe/web/dijit/themes/tundra/images/dndNoCopy.png/_ver1.2.0'); background-repeat: no-repeat; background-position: 2px center;}
+.tundra.dojoDndMove .dojoDndAvatarCanDrop .dojoDndAvatarHeader	{background-color: #97e68d; background-image: url('/swe/web/dijit/themes/tundra/images/dndMove.png/_ver1.2.0'); background-repeat: no-repeat; background-position: 2px center;}
+.tundra.dojoDndCopy .dojoDndAvatarCanDrop .dojoDndAvatarHeader	{background-color: #97e68d; background-image: url('/swe/web/dijit/themes/tundra/images/dndCopy.png/_ver1.2.0'); background-repeat: no-repeat; background-position: 2px center;}
+
+.tundra .dijitContentPaneLoading {
+	background:url('/swe/web/dijit/themes/tundra/images/loading.gif/_ver1.2.0') no-repeat left center;
+	padding-left:25px;
+}
+
+.tundra .dijitContentPaneError {
+	background:url('/swe/web/dijit/themes/tundra/images/warning.png/_ver1.2.0') no-repeat left center;
+	padding-left:25px;
+}
+.tundra .dijitMenu {
+	border: 1px solid #7eabcd;
+	margin: 0px;
+	padding: 0px;
+}
+
+.tundra .dijitMenuItem {
+	background-color: #f7f7f7;
+	font-family: sans-serif;
+	margin: 0;
+}
+.tundra .dijitMenuPreviousButton, .tundra .dijitMenuNextButton {
+	font-style: italic;
+}
+.tundra .dijitMenuItem td {
+	padding:2px;
+}
+
+.tundra .dijitMenuItemHover {
+	background-color: #3559ac;
+	color:#fff;
+}
+
+.tundra .dijitMenuItemIcon {
+	width: 16px;
+	height: 16px;
+}
+
+.tundra .dijitMenuExpand {
+	width: 7px;
+	height: 7px;
+	background-image: url('/swe/web/dijit/themes/tundra/images/spriteArrows.png/_ver1.2.0');
+	background-repeat: no-repeat;
+	background-position: -14px 0px;
+	font-size: 1px;
+	display: block;
+}
+.dj_ie6 .tundra .dijitMenuExpand {
+	background-image: url('/swe/web/dijit/themes/tundra/images/spriteArrows.gif/_ver1.2.0');
+}
+
+.tundra .dijitMenuSeparator {
+	background-color: #f7f7f7;
+}
+
+/* separator can be two pixels -- set border of either one to 0px to have only one */
+.tundra .dijitMenuSeparatorTop {
+	border-bottom: 1px solid #9b9b9b;
+}
+
+.tundra .dijitMenuSeparatorBottom {
+	border-top: 1px solid #e8e8e8;
+}
+
+/* the checked menu item */
+.tundra .dijitCheckedMenuItemIconChar {
+	display: none;
+}
+
+.tundra .dijitCheckedMenuItemIcon {
+	background-image: url('/swe/web/dijit/themes/tundra/images/checkmark.png/_ver1.2.0');
+	background-position: -16px;
+}
+
+.dj_ie6 .tundra .dijitCheckedMenuItemIcon {
+	background-image: url('/swe/web/dijit/themes/tundra/images/checkmark.gif/_ver1.2.0');
+}
+
+.tundra .dijitCheckedMenuItemIconChecked {
+	background-position: 0px;
+}
+
+.tundra .dijitMenuItemHover .dijitCheckedMenuItemIcon {
+	background-position: -80px;
+}
+
+.tundra .dijitMenuItemHover .dijitCheckedMenuItemIconChecked {
+	background-position: -64px;
+}
+.dijitRtl .tundra .dijitMenuItem .dijitMenuItemIcon {
+	padding-left: 3px;
+	padding-right: 0px;
+}
+
+.dijitRtl .tundra .dijitMenuItem .dijitMenuExpand {
+	background-position: -7px 0px;
+}
+.swe-app-loginLogoutArea {
+	color: #bebebe;
+}
+.swe-app-loginLogoutArea .gray {
+	color: #bebebe;
+}
+.swe-app-loginLogoutArea a, .swe-app-loginLogoutArea .gray span {
+	color: white;
+	font-size: 8pt;
+}
+.swe-app-loginLogoutArea .userid {
+	color: white;
+	font-weight: bold;
+	font-size: 8pt;
+}
+.swe-app-loginLogoutArea .userid .link {
+	cursor: pointer;
+}
+.swe-app-loginLogoutArea-userMenu .userIcon {
+	background: url('editprofile.gif') no-repeat center center;
+}
+.swe-app-LoginWidget {
+	border: 0;
+	background: none;
+}
+.swe-team-server {
+	height: 100px;
+	background: url('../images/login/logo-devmaster.png') no-repeat;
+	margin-left: -44px;
+}
+.swe-team-server-nameApp {
+	padding-left:260px;
+	padding-top:35px;
+	color: white;	
+	font-weight: bold;
+	font-size: 20pt; 	
+}
+.swe-team-server-nameApp-banner {
+	padding-left:80px;
+	padding-top:15px;
+	color: blue;	
+	font-weight: bold;
+	font-size: 20pt; 	
+}
+.swe-app-LoginWidget .serverInfo {
+	margin-bottom: 20px;
+	color: #666666;
+}
+.swe-app-LoginWidget .serverInfo span {
+	color: black;
+}
+.swe-app-LoginWidget .loginDialogContent {
+	position: relative;
+	zoom: 1;
+	padding: 0 11px 8px 57px;
+	overflow: hidden;
+}
+.dj_ie6 .swe-app-LoginWidget .remember {
+	display: none;
+}
+.swe-app-LoginWidget .field label {
+	padding-left: 0.5em;
+	font-size: 8pt;
+}
+.swe-app-LoginWidget .loginErrorMessage {
+	overflow: hidden;
+	margin-top: 2px;
+	padding: 0 20px 0 20px;
+	color: red;
+	background: url('../images/login/error.gif') no-repeat;
+}
+.swe-app-LoginWidget .illustration {
+	position: relative;
+	overflow: hidden;
+	float: left;
+	background: url('../images/money.png') no-repeat;
+	height: 194px;
+	width: 167px;
+	margin-left: 6px;
+}
+.swe-app-LoginWidget .btnLogin {
+	position: relative;
+	overflow: hidden;
+	float: left;
+	background: url('../images/login_btn.png') no-repeat;
+	height: 32px;
+	width: 99px;
+	margin-left: 6px;
+}
+.swe-app-LoginWidget .services {
+	float: left;
+	clear: left;
+	color: #666666;
+	margin-top: 2px;
+	width: 243px;
+}
+.swe-app-LoginWidget .services img {
+	vertical-align: top;
+	margin-right: 4px;
+}
+.swe-app-LoginWidget .services ul {
+	list-style-type: none;
+	padding-left: 0;
+	margin-left: 0;
+	margin-top: 4px;
+	font-weight: bold;
+}
+.swe-app-LoginWidget .loginDialogFooter {
+	min-height: 26px;
+	font-size: 7pt;
+	color: #666666;
+	padding: 0 14px 8px 13px;
+	line-height: 1.2em;
+}
+.swe-app-LoginWidget .main-wrapper {
+	overflow: hidden;
+}
+.swe-app-LoginWidget .form {
+	position: relative;
+	overflow: hidden;
+	zoom: 1;
+	margin-top: 10px;
+	padding-left: 90px;
+}
+.swe-app-LoginWidget input {
+	padding: 2px;
+	background: #ffffe5; 
+}
+.swe-app-LoginWidget button {
+	margin-top: 3px;
+	padding: 2px 10px 2px 10px;
+}
+.swe-app-LoginWidget .form .label {
+	padding-bottom: 3px;
+}
+.swe-app-LoginWidget .form .field {
+	position: relative;
+	padding-bottom: 8px;
+}
+.swe-app-LoginWidget .form .field .dijitTextBox {
+	width: 73%;
+}
+.swe-app-LoginWidget .logos {
+	position: relative;
+	margin: 6px 14px 12px 14px;
+	height: 18px;
+}
+.swe-app-LoginWidget .logos .ibm-logo {
+	float: left;
+	background: url('logo-ibm-sm.gif') no-repeat;
+	margin-top: 3px;
+	height: 15px;
+	width: 41px;
+}
+.swe-app-LoginWidget .logos .rational-logo {
+	float: right;
+	background: url('logo-rtl-sm.gif') no-repeat;
+	height: 18px;
+	width: 97px;
+}
+
+/****
+		dijit.form.TextBox
+		dijit.form.ValidationTextBox
+		dijit.form.SerializableTextBox
+		dijit.form.RangeBoundTextBox
+		dijit.form.NumberTextBox
+		dijit.form.CurrencyTextBox
+		dijit.form.NumberSpinner
+		dijit.form.ComboBox (partial)
+ ****/
+
+.tundra .dijitInputField INPUT,
+.tundra .dijitTextBox,
+.tundra .dijitComboBox,
+.tundra .dijitSpinner {
+	margin: 0em 0.1em;
+}
+
+.tundra .dijitTextBox,
+.tundra .dijitComboBox,
+.tundra .dijitSpinner,
+.tundra .dijitTextArea {
+	font-family: sans-serif;
+	font-size: 100%;
+}
+
+.tundra .dijitTextArea {
+	padding: 3px;
+}
+
+.tundra .dijitTextBox,
+.tundra .dijitComboBox,
+.tundra .dijitSpinner,
+.tundra .dijitTextArea,
+.tundra .dijitInlineEditor input {
+	/* 	For all except dijit.form.NumberSpinner:  the actual input element.
+		For TextBox, ComboBox, Spinner: the div that contains the input.
+		Otherwise the actual input element.
+	*/
+	background:#fff url('/swe/web/dijit/themes/tundra/images/validationInputBg.png/_ver1.2.0') repeat-x top left;
+	#background:#fff url('/swe/web/dijit/themes/tundra/images/validationInputBg.gif/_ver1.2.0') repeat-x top left;
+	border:1px solid #b3b3b3;
+	line-height: normal;
+}
+
+.tundra .dijitTextBoxDisabled,
+.tundra .dijitComboBoxDisabled,
+.tundra .dijitSpinnerDisabled,
+.tundra .dijitTextAreaDisabled {
+	color: gray;
+}
+.dj_safari .tundra .dijitTextBoxDisabled,
+.dj_safari .tundra .dijitComboBoxDisabled,
+.dj_safari .tundra .dijitSpinnerDisabled,
+.dj_safari .tundra .dijitTextAreaDisabled {
+	color: #eee;
+}
+
+/* ComboBox specifix rules*/
+.tundra .dijitComboBox .dijitInputField {
+	padding: 1px 0;
+}
+
+.tundra .dijitComboBox .dijitButtonNode {
+	padding: 1px 0.2em;
+}
+.tundra .dijitComboBox .dijitButtonNode,
+.tundra .dijitSpinner .dijitButtonNode {
+	/* line between the input area and the drop down button */
+	border-color: #9b9b9b;
+	border-width: 0px 0px 0px 1px;
+	border-style: solid;
+}
+
+.tundra .dijitTextBoxFocused,
+.tundra .dijitComboBoxFocused,
+.tundra .dijitSpinnerFocused,
+.tundra .dijitTextAreaFocused {
+	/* input field when focused (ie: typing affects it) */
+	border-color:#406b9b;
+}
+.tundra .dijitComboBoxFocused .dijitButtonNode, .tundra .dijitSpinnerFocused .dijitButtonNode {
+	border-left-color:#366dba;
+}
+.tundra .dijitSpinnerFocused .dijitDownArrowButton {
+	border-top-color:#366dba;
+}
+
+.tundra .dijitError {
+	background-color:#f9f7ba;
+	background-image:none;
+}
+.dj_ie6 .tundra .dijitError INPUT {
+	/* background-color: transparent on an <input> doesn't work on IE6 */
+	background-color:#f9f7ba !important;
+}
+
+.tundra .dijitErrorFocused {
+	background-color:#f9f999;
+	background-image:none;
+}
+.dj_ie6 .tundra .dijitErrorFocused INPUT {
+	/* background-color: transparent on an <input> doesn't work on IE6 */
+	background-color:#f9f999 !important;
+}
+
+/* Validation errors  */
+.tundra .dijitValidationIcon {
+	/* prevent height change when widget goes from valid to invalid state */
+	width: 16px;
+	background: transparent url('/swe/web/dijit/themes/tundra/images/warning.png/_ver1.2.0') no-repeat center center;
+}
+
+
+
+/* inline edit boxen */
+.tundra .dijitInlineValue {
+	/* span around an inline-editable value when NOT in edit mode */
+	padding:3px;
+	margin:4px;
+}
+
+
+/* MOW: trying to get this to look like a mini-dialog.  Advised? */
+.tundra .dijitInlineEditor {
+	/* fieldset surrounding an inlineEditor in edit mode */
+	display: inline-block;
+	display: -moz-inline-stack;
+	#display:inline;
+	/*
+	border-style: solid;
+	border-color: #7788a0 #344257 #344257 #7788a0;
+	border-width:1px 2px 2px 1px;
+	-moz-border-radius:0px 2px 0px 2px;	make BL and TR corners indent on Moz so it looks like we have a shadow
+	background-color:white;
+	*/
+}
+
+.dijitInlineEditor .saveButton,
+.dijitInlineEditor .cancelButton {
+	margin:3px 3px 3px 0px;
+}
+
+.RichTextEditable {
+	border:1px solid #bfbfbf;
+	border-top:0;
+}
+
+/*
+ * IE6: can't display PNG images with gradient transparency.
+ * Want to use filter property for those images, but then need to specify a path relative
+ * to the main page, rather than relative to this file... using gifs for now
+ */
+
+/* The highlight is shown in the ComboBox menu. */
+.tundra .dijitComboBoxHighlightMatch {
+	background-color:#a5beda;
+}
+
+
+.tundra .dijitFocusedLabel {
+	/* for checkboxes or radio buttons, hatch border around the corresponding label, to indicate focus */
+	outline: 1px dotted #666666;
+}
+.dijitRtl .tundra .dijitComboBox .dijitButtonNode,
+.dijitRtl  .dijitSpinner .dijitButtonNode {
+	/* line between the input area and the drop down button */
+	border-color: #9b9b9b;
+	border-width: 0px 1px 0px 0px;
+}
+
+/*****
+		dijit.form.Button
+		dijit.form.DropDownButton
+		dijit.form.ComboButton
+		dijit.form.ComboBox (partial)
+ *****/
+
+.tundra .dijitButtonNode {
+	/* enabled state - inner */
+	border: 1px solid #c0c0c0; 
+	border-bottom: 1px solid #9b9b9b; 
+	padding: 0.1em 0.2em 0.2em 0.2em; 
+	background: #fff url('/swe/web/dijit/themes/tundra/images/buttonEnabled.png/_ver1.2.0') repeat-x bottom left;
+}
+
+.tundra .dijitButtonNode button { 
+	border: 0px; 
+	background-color: transparent; 
+} 
+ 
+.tundra .dijitButtonText {
+	text-align: center; 
+	padding: 0 0.3em;
+}
+
+.tundra .dijitDisabled .dijitButtonText {
+	color: #7F7F7F;
+}
+
+/*
+.tundra .dijitComboBox .dijitButtonNode {
+	border: 0px;
+}
+*/
+
+.tundra .dijitArrowButton {
+	color: #111;
+}
+
+.tundra .dijitComboButton .dijitDownArrowButton {
+	padding-right:4px;
+}
+
+.dj_ff2 .tundra .dijitComboButton .dijitButtonContentsFocused,
+.dj_ff2 .tundra .dijitComboButton .dijitDownArrowButtonFocused {
+	border: 1px solid transparent; /*make transparent so FF2 focus rect. is visible */
+}
+
+.tundra .dijitButtonDisabled .dijitButtonNode,
+.tundra .dijitToggleButtonDisabled .dijitButtonNode,
+.tundra .dijitDropDownButtonDisabled .dijitButtonNode,
+.tundra .dijitComboButtonDisabled .dijitButtonNode,
+.tundra .dijitComboBoxDisabled,
+.tundra .dijitSpinnerDisabled,
+.tundra .dijitSpinnerDisabled .dijitButtonNode {
+	/* disabled state - inner */
+	/* border-color: #d5d5d5 #bdbdbd #bdbdbd #d5d5d5; */
+	border-color: #d5d5d5 #d5d5d5 #bdbdbd #d5d5d5; 
+	background:#e4e4e4 url('/swe/web/dijit/themes/tundra/images/buttonDisabled.png/_ver1.2.0') top repeat-x;
+}
+
+.tundra .dijitButtonHover .dijitButtonNode,
+.tundra .dijitButtonNodeHover,
+.tundra .dijitToggleButtonHover .dijitButtonNode,
+.tundra .dijitDropDownButtonHover .dijitButtonNode,
+.tundra .dijitComboButtonHover .dijitButtonContents,
+.tundra .dijitComboButtonDownArrowHover .dijitDownArrowButton,
+.tundra .dijitComboBoxHover .dijitDownArrowButton,
+.tundra .dijitSpinnerUpArrowHover .dijitUpArrowButton,
+.tundra .dijitSpinnerDownArrowHover .dijitDownArrowButton {
+	/* hover state - inner */
+	/* TODO: change from Hover to Selected so that button is still highlighted while drop down is being used */
+	border-color:		#a5beda; 
+	border-bottom-color:#5c7590; 
+	color:#243C5F;
+	background:#fcfdff url('/swe/web/dijit/themes/tundra/images/buttonHover.png/_ver1.2.0') repeat-x bottom;
+}
+
+.tundra .dijitSpinnerUpArrowActive .dijitUpArrowButton,
+.tundra .dijitSpinnerDownArrowActive .dijitDownArrowButton,
+.tundra .dijitButtonActive .dijitButtonNode,
+.tundra .dijitToggleButtonActive .dijitButtonNode,
+.tundra .dijitDropDownButtonActive .dijitButtonNode,
+.tundra .dijitComboButtonActive .dijitButtonContents,
+.tundra .dijitDownArrowActive .dijitDownArrowButton,
+.tundra .dijitComboBoxActive .dijitDownArrowButton {
+	/* active state - inner (for when you are pressing a normal button, or
+	 * when a toggle button is in a depressed state
+	 */
+	border-color:#366dba;
+	background: #ededed url('/swe/web/dijit/themes/tundra/images/buttonActive.png/_ver1.2.0') bottom repeat-x;
+}
+
+.tundra .dijitArrowButtonInner {
+	background-image:url('/swe/web/dijit/themes/tundra/images/spriteArrows.png/_ver1.2.0');
+	background-position: left top;
+	width: 7px;
+	height: 7px;
+	font-size: 1px;
+	margin: 0px 4px 0px 5px;
+}
+.dj_ie6 .tundra .dijitArrowButtonInner {
+	background-image:url('/swe/web/dijit/themes/tundra/images/spriteArrows.gif/_ver1.2.0');
+}
+.tundra .dijitDisabled .dijitArrowButtonInner {
+	background-position: -28px top;
+}
+.tundra .dijitUpArrowButton .dijitArrowButtonInner { 
+	background-position: -21px top; 
+}
+
+.tundra .dijitDisabled .dijitUpArrowButton .dijitArrowButtonInner { 
+	background-position: -49px top; 
+}
+
+
+/* Since ComboBox doesn't have it's own file... */
+.tundra .dijitComboBox .dijitArrowButton .dijitArrowButtonInner {
+	background-image: url('/swe/web/dijit/themes/tundra/images/comboArrowDown.gif/_ver1.2.0');
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: center center;
+	height: auto;
+	font-size: 100%;
+	font-size: inherit;
+}
+.tundra .dijitComboBoxHover .dijitArrowButtonInner {
+	/* TODO: url('/swe/web/dijit/themes/tundra/images/arrowDownHover.png/_ver1.2.0') but in IE6 it flickers some? */
+}
+
+/* Since Spinner doesn't have it's own file */
+.tundra .dijitSpinner .dijitArrowButtonInner {
+	display: block;  /* inline just isnt going to work for us here IMO */
+	position:absolute;
+	top: 50%; 
+	margin-top: -4px; /* half its height */
+	left: 50%;
+	margin-left: -4px; /* half its width */
+	line-height: 2px;
+}
+.tundra .dijitToggleButton .dijitRadio,
+.tundra .dijitToggleButton .dijitRadioIcon {
+	background-image: url('/swe/web/dijit/themes/tundra/images/checkmarkNoBorder.png/_ver1.2.0');
+}
+
+.dj_ie6 .tundra .dijitToggleButton .dijitRadio,
+.dj_ie6 .tundra .dijitToggleButton .dijitRadioIcon {
+	background-image: url('/swe/web/dijit/themes/tundra/images/checkmarkNoBorder.gif/_ver1.2.0');
+}
+
+.tundra .dijitRadio,
+.tundra .dijitRadioIcon	{		/* inside a toggle button */
+	background-image: url('/swe/web/dijit/themes/tundra/images/checkmark.png/_ver1.2.0'); /* checkbox sprite image */
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: 0;
+	padding: 0;
+}
+
+.dj_ie6 .tundra .dijitRadio,
+.dj_ie6 .tundra .dijitRadioIcon	{		/* inside a toggle button */
+	background-image: url('/swe/web/dijit/themes/tundra/images/checkmark.gif/_ver1.2.0'); /* checkbox sprite image */
+}
+
+.tundra .dijitRadio,
+.tundra .dijitToggleButton .dijitRadioIcon {
+	/* unselected */
+	background-position: -112px;
+}
+
+.tundra .dijitRadioDisabled {
+	/* unselected and disabled */
+	background-position: -144px;
+}
+
+.tundra .dijitRadioCheckedDisabled {
+	/* selected but disabled */
+	background-position: -128px;
+}
+
+.tundra .dijitRadioHover {
+	/* hovering over an unselected enabled radio button */
+	background-position: -176px;
+}
+
+.tundra .dijitRadioChecked,
+.tundra .dijitRadioCheckedHover,
+.tundra .dijitToggleButtonChecked .dijitRadioIcon {
+	/* selected.  Since clicking a selected radio button doesn't change anything, there's
+	 * no hover effect on selected radio buttons.
+	 */
+	background-position: -96px;
+}
+.tundra .dijitToggleButton .dijitCheckBoxIcon {
+	background-image: url('/swe/web/dijit/themes/tundra/images/checkmarkNoBorder.png/_ver1.2.0');
+}
+
+.dj_ie6 .tundra .dijitToggleButton .dijitCheckBoxIcon {
+	background-image: url('/swe/web/dijit/themes/tundra/images/checkmarkNoBorder.gif/_ver1.2.0');
+}
+
+.tundra .dijitCheckBox,
+.tundra .dijitCheckBoxIcon		/* inside a toggle button */	{
+	background-image: url('/swe/web/dijit/themes/tundra/images/checkmark.png/_ver1.2.0'); /* checkbox sprite image */
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin: 0 2px 0 0;
+	padding: 0;
+}
+
+.dj_ie6 .tundra .dijitCheckBox,
+.dj_ie6 .tundra .dijitCheckBoxIcon		/* inside a toggle button */	{
+	background-image: url('/swe/web/dijit/themes/tundra/images/checkmark.gif/_ver1.2.0'); /* checkbox sprite image */
+}
+
+.tundra .dijitCheckBox,
+.tundra .dijitToggleButton .dijitCheckBoxIcon {
+	/* unchecked */
+	background-position: -16px;
+}
+
+.tundra .dijitCheckBoxChecked,
+.tundra .dijitToggleButtonChecked .dijitCheckBoxIcon {
+	/* checked */
+	background-position: 0px;
+}
+
+.tundra .dijitCheckBoxDisabled {
+	/* disabled */
+	background-position: -48px;
+}
+
+.tundra .dijitCheckBoxCheckedDisabled {
+	/* disabled but checked */
+	background-position: -32px;
+}
+
+.tundra .dijitCheckBoxHover {
+	/* hovering over an unchecked enabled checkbox */
+	background-position: -80px;
+}
+
+.tundra .dijitCheckBoxCheckedHover {
+	/* hovering over a checked enabled checkbox */
+	background-position: -64px;
+}
+.swe-ui-StyledBox {
+	position: relative;
+	zoom: 1; /* IE6 hack for hasLayout */
+	font-size: 9pt !important;
+	-moz-user-select: text;
+}
+.swe-ui-StyledBox .box-wrapper, .swe-ui-StyledBox .pull-back-out {
+	position: relative;
+	zoom: 1; /* IE6 hack for hasLayout */
+	font-size: 9pt !important;
+}
+.swe-ui-StyledBox .top-border {
+	margin: 0 5px 0 3px;
+	background-color: white;
+	height: 1px;
+	font-size: 1px; /*IE6 small height hack */
+}
+.swe-ui-StyledBox .header {
+	position: relative;
+	overflow: hidden;
+	height: 1.5em;
+	min-height: 17px;
+	font-weight: bold;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	margin-right: 1px;
+	padding: 1px 2px 0px 2px;
+}
+.swe-ui-StyledBox .header .header-icon {
+	display: none;
+	float: left;
+	position: relative;
+	height: 16px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 1.5em;
+	min-height: 18px;
+	text-align: center;
+	width: 20px;
+}
+.swe-ui-StyledBox .header .header-icon .icon-image {
+	width: 16px;
+	height: 16px;
+	margin-top: 1px;
+}
+.swe-ui-StyledBox .header .header-text {
+	position: relative;
+	overflow: hidden;
+	zoom: 1;
+	line-height: 1.4em;
+	padding-left: 3px;
+}
+.swe-ui-StyledBox .header .header-secondary {
+	color: #606060;
+	font-weight: normal;
+}
+.swe-ui-StyledBox .header .header-text a {
+	cursor: pointer;
+}
+.swe-ui-StyledBox .header-buttons {
+	float: right;
+	cursor: pointer;
+	margin-left: 4px;
+}
+.swe-ui-StyledBox .header-buttons a {
+	float: left;
+	height: 10px;
+	width: 10px;
+	padding: 0 3px 5px 3px;
+	margin-top: 1px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	filter: alpha(opacity=25);
+	-moz-opacity: 0.25;
+	opacity: 0.25;
+}
+.dijit_a11y .swe-ui-StyledBox .header-buttons a {
+	width: auto;
+}
+.swe-ui-StyledBox-hover .header-buttons a, .swe-ui-StyledBox-trimless .header-buttons a, .swe-ui-StyledBox .header-buttons a:focus {
+	filter: none;
+	-moz-opacity: 1;
+	opacity: 1;
+}
+.swe-ui-StyledBox .header-buttons a.close:hover {
+	background-image: url('/swe/web/swe.ui/graphics/StyledBox/close-hov.gif/_ver1.0.0.I200906051434');
+}
+.swe-ui-StyledBox .header-buttons a.menu:hover {
+	background-image: url('/swe/web/swe.ui/graphics/StyledBox/down-arrow-hov.gif/_ver1.0.0.I200906051434');
+}
+.swe-ui-StyledBox .header-buttons a.expand:hover {
+	background-image: url('/swe/web/swe.ui/graphics/StyledBox/expand-hov.gif/_ver1.0.0.I200906051434');
+}
+.swe-ui-StyledBox .header-buttons a.collapse:hover {
+	background-image: url('/swe/web/swe.ui/graphics/StyledBox/minimize-hov.gif/_ver1.0.0.I200906051434');
+}
+.swe-ui-StyledBox .header-buttons a:hover img {
+	display:none;
+}
+.dijit_a11y .swe-ui-StyledBox .header-buttons a:hover img {
+	display:inline;
+}
+.swe-ui-StyledBox .middle-section {
+	background-color: white;
+}
+.swe-ui-StyledBox .middle-section-collapsed {
+	display: none;
+}
+.swe-ui-StyledBox .header-collapsed {
+	border-bottom: 1px solid white !important;
+}
+.swe-ui-StyledBox .content {
+	position: relative;
+	word-wrap: break-word;
+	zoom: 1;
+	overflow: auto;
+}
+.dj_ie .swe-ui-StyledBox .content {
+	margin-bottom: -1px;
+}
+.swe-ui-StyledBox .content-wrapper {
+	/* Wrapper to fix IE6 scrollbar issue on zoom */
+	background-color:#ffffff;
+	position: relative;
+}
+.swe-ui-StyledBox .showBackground .content {
+	border-top: 0;
+	padding-top: 1px;
+}
+.swe-ui-StyledBox .bottom-section {
+	position: relative;
+	width: 100%;
+	height: 6px;
+	clear: both;
+	font-size: 1px; /*IE6 small height hack */
+	line-height: 0px;
+	zoom: 1; /* IE6 hack for hasLayout */
+	margin-bottom: -3px;
+	margin-top: -3px;
+}
+.swe-ui-StyledBox .corner {
+	font-size: 1px; /*IE6 small height hack */
+	background-repeat: no-repeat;
+	height: 6px;
+	width: 6px;
+	overflow: hidden;
+}
+.swe-ui-StyledBox .top-left {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-position: left top;
+}
+.swe-ui-StyledBox .top-right {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	background-position: right top;
+}
+.swe-ui-StyledBox .bottom-left {
+	float: left;
+	background-position: left top;
+}
+.swe-ui-StyledBox .bottom-right {
+	float: right;
+	width: 6px;
+	height: 6px;
+	line-height: 1px;
+	font-size: 1px;
+	background-position: right top;
+	background-repeat: no-repeat;
+}
+.swe-ui-StyledBox .border-bottom {
+	margin: 0 3px 0 3px;
+	padding-bottom: 1px;
+}
+.swe-ui-StyledBox .border-bottom, .swe-ui-StyledBox .border-bottom-inner {
+	font-size: 1px;
+	line-height: 1px;
+}
+.swe-ui-StyledBox-menu {
+	margin-top: 2px;
+}
+.swe-ui-StyledBox .header-buttons .open-menu {
+	background-color: #f7f7f7;
+}
+.swe-ui-StyledBox a.show-header {
+	display: none;
+}
+.swe-ui-Dialog-absolute {
+	position: absolute;
+	z-index: 999;
+	top: -10000px;  /* Paint the dialog off the screen first, then yield updatePosition() */
+}
+.swe-ui-Dialog-blockerDiv {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	filter: alpha(opacity=10);
+	-moz-opacity: 0.1;
+	opacity: 0.1;
+	z-index: 998;
+	background: #e0e0e0 url('/swe/web/swe.ui/graphics/StyledBox/alpha-blocker-bg.png/_ver1.0.0.I200906051434') repeat-x;
+}
+.dj_ie .swe-ui-Dialog-blockerDiv {
+	display: none;
+}
+/* COMMON TRIMS */ 
+.swe-ui-StyledBox-shadow .top-left, .swe-ui-StyledBox-shadow-alpha .top-left, .swe-ui-StyledBox-no-shadow .top-left {
+	background-position: top left;
+}
+.swe-ui-StyledBox-shadow .top-right, .swe-ui-StyledBox-shadow-alpha .top-right, .swe-ui-StyledBox-no-shadow .top-right {
+	background-position: top right;
+}
+.swe-ui-StyledBox-shadow .bottom-left, .swe-ui-StyledBox-shadow-alpha .bottom-left, .swe-ui-StyledBox-no-shadow .bottom-left {
+	background-position: bottom left;
+}
+.swe-ui-StyledBox-shadow .bottom-right, .swe-ui-StyledBox-shadow-alpha .bottom-right, .swe-ui-StyledBox-no-shadow .bottom-right {
+	background-position: bottom right;
+}
+.dj_ie6 .swe-ui-StyledBox-shadow .bottom-right, .dj_ie6 .swe-ui-StyledBox-shadow-alpha .bottom-right, .dj_ie6 .swe-ui-StyledBox-no-shadow .bottom-right {
+	width: auto;
+}
+.swe-ui-StyledBox-shadow .header, .swe-ui-StyledBox-shadow-alpha .header, .swe-ui-StyledBox-no-shadow .header {
+	border-bottom: 1px solid white;
+}
+
+/* NO SHADOW */
+.swe-ui-StyledBox-no-shadow .box-wrapper {
+	position: relative;
+	margin-right: 4px;
+	margin-left: 1px;
+}
+.swe-ui-StyledBox-no-shadow .pull-back-out {
+	margin-left: -1px;
+	margin-right: -1px;
+}
+.swe-ui-StyledBox-no-shadow .top-left, .swe-ui-StyledBox-no-shadow .top-right, .swe-ui-StyledBox-no-shadow .bottom-left, .swe-ui-StyledBox-no-shadow .bottom-right {
+	background-image: url('../images/login/corners-no-shadow.png');
+}
+.swe-ui-StyledBox-no-shadow .header-wrapper {
+	border-bottom: 1px solid #dcdcdc;
+}
+.swe-ui-StyledBox-no-shadow .header {
+	margin-right: 0;
+}
+.swe-ui-StyledBox-no-shadow .top-border {
+	border-top: 1px solid #ababab;
+	margin: 0 4px 0 4px;
+}
+.swe-ui-StyledBox-no-shadow .top-section {
+	border-left: 1px solid #ababab;
+	border-right: 1px solid #ababab;
+}
+.swe-ui-StyledBox-no-shadow .middle-section {
+	border-left: 1px solid #ababab;
+}
+.swe-ui-StyledBox-no-shadow .content-wrapper {
+	border-right: 1px solid #ababab;
+	background: white url('inner-bg.png') repeat-x bottom;
+}
+.swe-ui-StyledBox-no-shadow .content {
+	border: 1px solid white;
+	border-top: 0;
+	border-bottom: 0;
+}
+.swe-ui-StyledBox-no-shadow .bottom-section {
+	margin-top: -2px;
+	height: 7px;
+	padding-right: 3px;
+}
+.swe-ui-StyledBox-no-shadow .border-bottom {
+	height: 1px;
+	background-color: white;
+	margin-right: 4px;
+	margin-left: 4px;
+	padding-bottom: 0;
+	border-bottom: 1px solid #ababab;
+}
+
+/* SHADOW */
+
+.swe-ui-StyledBox-shadow .top-left, .swe-ui-StyledBox-shadow .top-right, .swe-ui-StyledBox-shadow .bottom-left, .swe-ui-StyledBox-shadow .bottom-right {
+	background-image: url('corners.png');
+}
+.swe-ui-StyledBox-shadow .header-wrapper {
+	border-bottom: 1px solid #e0e0e0;
+}
+.swe-ui-StyledBox-shadow .top-border {
+	border-top: 1px solid #dcdcdc;
+}
+.swe-ui-StyledBox-shadow .top-section {
+	border-left: 1px solid #dcdcdc;
+	border-right: 2px solid #f5f5f5;
+	background-color: #dcdcdc;
+}
+.swe-ui-StyledBox-shadow .middle-section {
+	border-left: 1px solid #dcdcdc;
+	border-right: 2px solid #f5f5f5;
+	border-bottom: 1px solid white;	
+}
+.swe-ui-StyledBox-shadow .content {
+	border: 1px solid white;
+	border-bottom: 0;
+}
+.swe-ui-StyledBox-shadow .content-wrapper {
+	border-right: 1px solid #dcdcdc;
+	background: white url('inner-bg.png') repeat-x bottom;
+}
+.swe-ui-StyledBox-shadow .border-bottom {
+	border-bottom: 2px solid #f5f5f5;
+	background-color: #dcdcdc;
+}
+
+
+/* SHADOW ALPHA */
+
+.swe-ui-StyledBox-shadow-alpha .top-left, .swe-ui-StyledBox-shadow-alpha .top-right, .swe-ui-StyledBox-shadow-alpha .bottom-left, .swe-ui-StyledBox-shadow-alpha .bottom-right {
+	background-image: url('corners-alpha.png');
+	height: 7px;
+	width: 7px;
+}
+.swe-ui-StyledBox-shadow-alpha .bottom-left {
+	height: 9px;
+}
+.swe-ui-StyledBox-shadow-alpha .bottom-right {
+	height: 9px;
+}
+.swe-ui-StyledBox-shadow-alpha .header-wrapper {
+	border-right: 1px solid #ababab;
+	border-bottom: 1px solid #dcdcdc;
+}
+.swe-ui-StyledBox-shadow-alpha .header {
+	margin-right: 0;
+}
+.swe-ui-StyledBox-shadow-alpha .top-border {
+	border-top: 1px solid #ababab;
+	border-bottom: 1px solid white;
+	margin-right: 6px;
+}
+.swe-ui-StyledBox-shadow-alpha .top-section {
+	border-left: 1px solid #ababab;
+	background-color: #ababab;
+	padding-right: 3px;
+	background: url('alpha-top-right.png') no-repeat right top;
+}
+.swe-ui-StyledBox-shadow-alpha .middle-section {
+	border-left: 1px solid #ababab;
+	padding-right: 3px;
+	background: url('alpha-right.png') repeat-y right;
+}
+.swe-ui-StyledBox-shadow-alpha .content-wrapper {
+	border-right: 1px solid #ababab;
+	background: white url('inner-bg.png') repeat-x bottom;
+}
+.swe-ui-StyledBox-shadow-alpha .content {
+	border: 1px solid white;
+	border-bottom: 0;
+}
+.swe-ui-StyledBox-shadow-alpha .bottom-section {
+	margin-top: -3px;
+	height: 6px;
+}
+.swe-ui-StyledBox-shadow-alpha .border-bottom {
+	border-top: 1px solid #f8f8f8;
+	margin-right: 7px;
+	margin-left: 5px;
+	padding-bottom: 0;
+}
+.swe-ui-StyledBox-shadow-alpha .border-bottom-wrapper {
+	border-top: 1px solid white;
+}
+.swe-ui-StyledBox-shadow-alpha .border-bottom-inner {
+	border-top: 1px solid #ababab;
+	background-image: url('alpha-bottom.png');
+	height: 3px;
+}
+
+/* BLUE */
+.swe-ui-StyledBox-blue .top-border {
+	border-bottom: 1px solid #eef6fb;
+}
+.swe-ui-StyledBox-blue-hover .top-border {
+	border-bottom: 1px solid #dbecf6;
+}
+.swe-ui-StyledBox-no-shadow.swe-ui-StyledBox-blue .top-border {
+	border-bottom-width: 2px;
+}
+.swe-ui-StyledBox-blue .header {
+	background: #e7f1f9 url('header-blue.png') repeat-x center center;
+}
+.swe-ui-StyledBox-blue-hover .header {
+	background: #cee2f2 url('header-blue-hover.png') repeat-x center center;
+}
+.swe-ui-StyledBox-blue .showBackground {
+	background-color: #f2f8fc;
+}
+/* GRAY */
+.swe-ui-StyledBox-gray .top-border {
+	border-bottom: 1px solid #f9f9f9;
+}
+.swe-ui-StyledBox-gray-hover .top-border {
+	border-bottom: 1px solid #f5f5f5;
+}
+.swe-ui-StyledBox-no-shadow.swe-ui-StyledBox-gray .top-border {
+	border-bottom-width: 2px;
+}
+.swe-ui-StyledBox-gray .header {
+	background: #f6f6f6 url('header-gray.png') repeat-x center center;
+}
+.swe-ui-StyledBox-gray-hover .header {
+	background: #f0f0f0 url('header-gray-hover.png') repeat-x center center;
+}
+.swe-ui-StyledBox-gray .showBackground {
+	background-color: #f6f6f6;
+}
+/* GREEN */
+.swe-ui-StyledBox-green .top-border {
+	border-bottom: 1px solid #f3faef;
+}
+.swe-ui-StyledBox-green-hover .top-border {
+	border-bottom: 1px solid #ebf7e5;
+}
+.swe-ui-StyledBox-no-shadow.swe-ui-StyledBox-green .top-border {
+	border-bottom-width: 2px;
+}
+.swe-ui-StyledBox-green .header {
+	background: #eef8e9 url('header-green.png') repeat-x center center;
+}
+.swe-ui-StyledBox-green-hover .header {
+	background: #e3f3db url('header-green-hover.png') repeat-x center center;
+}
+.swe-ui-StyledBox-green .showBackground {
+	background-color: #F1F8F1;
+}
+/* PURPLE */
+.swe-ui-StyledBox-purple .top-border {
+	border-bottom: 1px solid #f2f2f7;
+}
+.swe-ui-StyledBox-purple-hover .top-border {
+	border-bottom: 1px solid #eaeaf2;
+}
+.swe-ui-StyledBox-no-shadow.swe-ui-StyledBox-purple .top-border {
+	border-bottom-width: 2px;
+}
+.swe-ui-StyledBox-purple .header {
+	background: #eeedf4 url('header-lavender.png') repeat-x center center;
+}
+.swe-ui-StyledBox-purple-hover .header {
+	background: #e3e2ed url('header-lavender-hover.png') repeat-x center center;
+}
+.swe-ui-StyledBox-purple .showBackground {
+	background-color: #f8f7ff;
+}
+/* TEAL */
+.swe-ui-StyledBox-teal .top-border {
+	border-bottom: 1px solid #f1f8f7;
+}
+.swe-ui-StyledBox-teal-hover .top-border {
+	border-bottom: 1px solid #e8f3f2;
+}
+.swe-ui-StyledBox-no-shadow.swe-ui-StyledBox-teal .top-border {
+	border-bottom-width: 2px;
+}
+.swe-ui-StyledBox-teal .header {
+	background: #ebf5f4 url('header-teal.png') repeat-x center center;
+}
+.swe-ui-StyledBox-teal-hover .header {
+	background: #dfefed url('header-teal-hover.png') repeat-x center center;
+}
+.swe-ui-StyledBox-teal .showBackground {
+	background-color: #F4FCFB;
+}
+/* ORANGE */
+.swe-ui-StyledBox-orange .top-border {
+	border-bottom: 1px solid #fff8ea;
+}
+.swe-ui-StyledBox-orange-hover .top-border {
+	border-bottom: 1px solid #fff3dd;
+}
+.swe-ui-StyledBox-no-shadow.swe-ui-StyledBox-orange .top-border {
+	border-bottom-width: 2px;
+}
+.swe-ui-StyledBox-orange .header {
+	background: #fff5e2 url('/swe/web/swe.ui/graphics/StyledBox/header-orange.png/_ver1.0.0.I200906051434') repeat-x center center;
+}
+.swe-ui-StyledBox-orange-hover .header {
+	background: #ffefd1 url('/swe/web/swe.ui/graphics/StyledBox/header-orange-hover.png/_ver1.0.0.I200906051434') repeat-x center center;
+}
+.swe-ui-StyledBox-orange .showBackground {
+	background-color: #fff7f2;
+}
+/* GOLD */
+.swe-ui-StyledBox-gold .top-border {
+	border-bottom: 1px solid #fcf8e3;
+}
+.swe-ui-StyledBox-gold-hover .top-border {
+	border-bottom: 1px solid #faf3d2;
+}
+.swe-ui-StyledBox-no-shadow.swe-ui-StyledBox-gold .top-border {
+	border-bottom-width: 2px;
+}
+.swe-ui-StyledBox-gold .header {
+	background: #fbf6db url('/swe/web/swe.ui/graphics/StyledBox/header-gold.png/_ver1.0.0.I200906051434') repeat-x center center;
+}
+.swe-ui-StyledBox-gold-hover .header {
+	background: #f8f0c6 url('/swe/web/swe.ui/graphics/StyledBox/header-gold-hover.png/_ver1.0.0.I200906051434') repeat-x center center;
+}
+.swe-ui-StyledBox-gold .showBackground {
+	background-color: #FDFAF1;
+}
+/* WIZARD  */
+.swe-ui-StyledBox-wizard .top-border {
+	border-bottom: 1px solid #cfe9ef;
+}
+.swe-ui-StyledBox-wizard .header {
+	background: url('/swe/web/swe.ui/graphics/StyledBox/wizard-top.png/_ver1.0.0.I200906051434') no-repeat top left;
+	height: 75px;
+	border-bottom: 0;
+}
+.swe-ui-StyledBox-wizard .header-wrapper {
+	background: white url('/swe/web/swe.ui/graphics/StyledBox/wizard-top-tile.png/_ver1.0.0.I200906051434') repeat-x top right;
+	border-bottom: 0;
+}
+.swe-ui-StyledBox-shadow.swe-ui-StyledBox-wizard .header-wrapper {
+	margin-right:1px;
+}
+.swe-ui-StyledBox-wizard .content-wrapper {
+	background: white url('/swe/web/swe.ui/graphics/StyledBox/inner-bg-thick.png/_ver1.0.0.I200906051434') repeat-x bottom;
+}
+.swe-ui-StyledBox-wizard .border-bottom {
+	border-top: 1px solid #f3f3f3;
+}
+/* EDITOR */
+.swe-ui-StyledBox-editor .middle-section {
+	background-color: transparent;
+}
+.swe-ui-StyledBox-editor .box-wrapper {
+	background: #f7fafc url('/swe/web/swe.ui/graphics/StyledBox/editor-top.png/_ver1.0.0.I200906051434') repeat-x top left;
+	background-position: 0 2px;
+	margin-left: 1px;
+	margin-right: 4px;
+}
+.swe-ui-StyledBox-editor .pull-back-out {
+	margin-left: -1px;
+	margin-right: -4px;	
+}
+.swe-ui-StyledBox-editor .content {
+	min-height: 130px !important;
+	border-top: 0;
+}
+.swe-ui-StyledBox-editor .content-wrapper {
+	background: url('/swe/web/swe.ui/graphics/StyledBox/editor-bottom.png/_ver1.0.0.I200906051434') repeat-x bottom left;	
+}
+.swe-ui-StyledBox-editor .header {
+	border-bottom: 0;
+	margin-right: 0;
+}
+.swe-ui-StyledBox-editor .header-wrapper {
+	border-bottom: 0;
+	border-right: 1px solid #dcdcdc;
+}
+.swe-ui-StyledBox-editor .top-section {
+	background-color: transparent;
+	background-position: right 1px;
+}
+/* LOGIN */
+.swe-ui-StyledBox-login .middle-section {
+	background-color: transparent;
+}
+.swe-ui-StyledBox-login .box-wrapper {
+	background: #ffffff url('../images/login/login-top.png') repeat-x top left;
+	background-position: 0 1px;
+	min-height: 400px;
+}
+.swe-ui-StyledBox-login .pull-back-out {
+	top: -1px;
+	margin-left: -2px;
+	margin-right: -2px;
+}
+.swe-ui-StyledBox-login .content {
+	min-height: 375px !important;
+}
+.swe-ui-StyledBox-login .content-wrapper {
+	background: url('/swe/web/swe.ui/graphics/StyledBox/login-bottom.png/_ver1.0.0.I200906051434') repeat-x bottom left;	
+}
+.swe-ui-StyledBox-login .header {
+	border-bottom: 0;
+	margin-right: 0;
+}
+.swe-ui-StyledBox-login .header-wrapper {
+	border-bottom: 0;
+}
+.swe-ui-StyledBox-login .top-section {
+	background-color: transparent;
+	background-position: right 1px;
+	margin-top: 2px;
+}
+.swe-ui-StyledBox-login .bottom-section {
+	height: 5px;
+}
+.swe-ui-StyledBox-login .border-bottom {
+	border-top: 2px solid #e7f3f7;
+}
+/* NONE */
+
+.swe-ui-StyledBox-trimless .top-border {
+	display: none;
+}
+.swe-ui-StyledBox-trimless .top-section {
+	display: none;
+	border: 0;
+}
+.swe-ui-StyledBox-trimless .header {
+	background: transparent;
+	margin-right: 0;
+	border: 0;
+}
+.swe-ui-StyledBox-trimless .middle-section {
+	margin-left: 0;
+	margin-right: 0;
+	border-left: 0;
+	border-right: 0;
+	position: relative;
+}
+.swe-ui-StyledBox-trimless .content-wrapper {
+	margin-right: 0;
+	border-right: 0;
+	background: white;
+}
+.swe-ui-StyledBox-trimless-box .content-wrapper {
+	border: 1px solid #c5c5c5;
+}
+.swe-ui-StyledBox-trimless-showheader .top-section {
+	display: block;
+	background-color: #ffffff;
+}
+.swe-ui-StyledBox-trimless .content {
+	min-height: 30px;
+	padding-top: 6px;
+}
+.swe-ui-StyledBox-trimless .border-bottom {
+	display: none;
+}
+.swe-ui-StyledBox-trimless .bottom-section {
+	display: none;
+}
+.swe-ui-StyledBox-trimless .showBackground {
+	background-color: #f6f6f6;
+}
+.swe-ui-StyledBox-trimless a.show-header {
+	position: absolute;
+	display: none;
+	color: #85852C;
+	font-size: 8pt;
+	top: 0;
+	right: 2px;
+	height: 16px;
+	z-index: 997;
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.50;
+	opacity: 0.50;
+	text-decoration: none;
+}
+.swe-ui-StyledBox-trimless-hover a.show-header {
+	display: block;
+}
+.swe-ui-StyledBox-trimless a.show-header:hover {
+	filter: alpha(opacity=100);
+	-moz-opacity: 1;
+	opacity: 1;
+	color: #676532;
+	text-decoration: underline;
+}
+.swe-ui-StyledBox-trimless-showheader a.show-header {
+	display: block !important;
+}
+/* NO HEADER */
+.swe-ui-StyledBox-noheader .header {
+	overflow: visible;
+	height: auto;
+	min-height: 0;
+	background: none;
+	border-bottom: 0;
+	padding: 0;
+}
+* html .swe-ui-StyledBox-noheader .header {
+	zoom: 1;
+}
+.swe-ui-StyledBox-noheader .content-wrapper {
+	background-color: none;
+	overflow: visible;
+}
+.swe-ui-StyledBox-noheader .header-buttons {
+	position: absolute;
+	top: 0;
+	right: 1px;
+	z-index: 999;
+	float: none;
+	margin-left: 0;
+}
+.swe-ui-StyledBox-shadow-alpha.swe-ui-StyledBox-noheader .middle-section {
+	background: transparent url('/swe/web/swe.ui/graphics/StyledBox/alpha-top-right.png/_ver1.0.0.I200906051434') repeat-y right top;
+}
+.swe-ui-StyledBox-noheader .header-text {
+	visibility: hidden;
+	float: right;
+	width: 48px;
+	height: 16px;
+}
+* html .swe-ui-StyledBox-noheader .header-text {
+	display: none;
+}
+.swe-ui-StyledBox-noheader .header-icon {
+	display: none !imporant;
+}
+.swe-ui-StyledBox-noheader .top-border {
+	border-bottom: 0;
+}
+.swe-ui-StyledBox-shadow-alpha.swe-ui-StyledBox-noheader .top-border {
+	height: 2px;
+}
+.swe-ui-StyledBox-noheader .top-section {
+	background-color: transparent;
+	height: 0;
+}
+.swe-ui-StyledBox-noheader .content {
+	overflow: visible;
+	min-height: 20px;
+}
+.swe-ui-StyledBox-noheader .header-wrapper {
+	position: relative;
+	z-index: 998;
+	border-bottom: 0;
+}
+.swe-app-Navbar {
+	padding: 2px 2px 2px 2px;
+	overflow: hidden;
+	font-size: 8pt;
+	clear: both;
+	font-family: Tahoma, Arial, sans-serif;
+}
+.swe-app-Navbar a {
+	float: left;
+	margin-right: 24px;
+	color: #80c7e2;
+	text-decoration: none;
+	padding: 2px 6px 3px 6px;
+	margin: 0 10px 0 0;
+}
+.swe-app-Navbar a img { 
+	margin-right: 4px;
+	margin-bottom: 1px;
+	vertical-align: middle;
+}
+.swe-app-Navbar .pipe {
+	float: left;
+	color: #999999;
+	font-size: 10pt;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+.swe-app-Navbar a.selected {
+	font-weight: bold;
+	color: white;
+	outline-style: none;
+}
+.dj_ie6 .swe-app-Navbar a {
+	padding-bottom: 5px;
+}
+.swe-app-Navbar a:hover, .swe-app-Navbar a.menu-open {
+	color: white;
+	text-decoration: none;
+}
+.swe-app-Navbar a.selected:hover {
+	text-decoration: none;
+}
+.swe-app-Navbar .project-selector {
+	float: right;
+	margin-left: 8px;
+	margin-top: -1px;
+	margin-bottom: -1px;
+}
+.swe-app-Navbar .right-links {
+	float: right;
+}
+.swe-app-Navbar .right-links a {
+	margin-right: 0;
+	margin-left: 24px;
+}
+.swe-app-Navbar-menu {
+	top: 5px !important;
+}
+.swe-app-projectSelector {
+	font-family: inherit;
+	font-size: 8pt;
+	border: 1px solid #659dba;
+	background-color: #3d6794;
+	padding: 1px 1px 1px 2px;
+	width: 16em;
+	color: white;
+}
+.swe-app-projectSelector option {
+	background-color: #ffffff;
+	color: #000000;
+}
+.swe-app-projectSelector-grayed {
+	color: #7694af;
+}
+.swe-app-projectSelector .separator {
+	color: #aaaaaa;
+}
+.dj_ie .swe-app-projectSelector option.selected {
+	background-color: #3d6794;
+	color: white;
+}
+.swe-app-HoverMenu .caret {
+	margin-left: 3px;
+	margin-right: 2px;
+	filter: alpha(opacity=40);
+	-moz-opacity: 0.4;
+	opacity: 0.4;
+}
+.swe-app-HoverMenu img {
+	vertical-align: middle;
+} 
+.swe-app-HoverMenu.menu-open {
+	color: white;
+}
+.swe-app-HoverMenu.menu-open .caret, .swe-app-HoverMenu:hover .caret, .menu-open .swe-app-HoverMenu .caret {
+	filter: ;
+	-moz-opacity: 1;
+	opacity: 1;
+}
+/******************************************************************************************
+ * Footer style settings.
+ ******************************************************************************************/
+.swe-app-Footer {
+	overflow: hidden;
+	position: relative;
+	clear: both;
+	margin: 0 7px;
+}
+.swe-app-Footer .footer-left {
+	float: left;
+	padding-left: 1px;
+}
+.swe-app-Footer .footer-right {
+	float: right;
+	padding-right: 1px;
+	text-align: right;
+}
+.swe-app-Footer .footer-left, .swe-app-Footer .footer-right {
+	height: 28px;
+	line-height: 28px;	
+	margin-bottom: 7px;
+}
+.dj_ie .swe-app-Footer .footer-left, .dj_ie .swe-app-Footer .footer-right {
+	font-size: 30px;	
+}
+.swe-app-Footer .footer-left img, .swe-app-Footer .footer-right img {
+	vertical-align: middle;
+	font-size: 9pt; 
+}
+.swe-app-Footer .footer-links {
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+	color: #2e5589;
+	line-height: 28px;
+}
+.swe-app-Footer .footer-links a {
+	text-decoration: none;
+	color: #2e5589;
+	font-size: 8pt;
+}
+.swe-app-Footer .footer-links a:hover {
+	text-decoration: underline;
+}
+.com-ibm-team-repository-web-ui-LicenseInfoWidget {
+	color: #bebebe;
+	font-size: 8pt;
+}
+.com-ibm-team-repository-web-ui-LicenseInfoWidget .expirationInfo a {
+	color: #bebebe !important;
+} 
+.com-ibm-team-repository-web-ui-LicenseInfoWidget .expirationInfo {
+	color: white;
+}
+.com-ibm-team-repository-web-ui-internal-about {
+	position: relative;
+	zoom: 1;
+}
+.com-ibm-team-repository-web-ui-internal-about div.wrapper {
+	padding: 14px 12px 8px 12px;
+}
+.com-ibm-team-repository-web-ui-internal-about h1,
+.com-ibm-team-repository-web-ui-internal-about h2 {
+	margin: 0 0 11px 0;
+}
+.com-ibm-team-repository-web-ui-internal-about a {
+	color: #005B87;
+	text-decoration: none;
+}
+.com-ibm-team-repository-web-ui-internal-about a:hover {
+	color: #8A9084;
+	text-decoration: underline;
+}
+.com-ibm-team-repository-web-ui-internal-about .table-wrapper {
+	position: relative;
+	margin-right: -5px;
+	margin-left: -5px;
+}
+.com-ibm-team-repository-web-ui-internal-about table {
+	border-spacing: 1px;
+	width: 100%;
+	margin-bottom: 0.5em;
+}
+.com-ibm-team-repository-web-ui-internal-about th,
+.com-ibm-team-repository-web-ui-internal-about td {
+	padding: 2px 5px 2px 5px;
+}
+.com-ibm-team-repository-web-ui-internal-about tr.headerRowLine th {
+	border-bottom: 1px solid #CDCDCD;
+	background-color: #FFF;
+	font-size: 1px !important;
+	line-height: 0px;
+	padding: 0;
+}
+.com-ibm-team-repository-web-ui-internal-about th {
+	background-color: #F3F3F3;
+	color: #666666;
+	font-weight: bold;
+	border-width: 0px;
+}
+.com-ibm-team-repository-web-ui-internal-about td {
+	border-bottom: 1px solid #CCC;
+}
+.com-ibm-team-repository-web-ui-internal-about .centered {
+	text-align: center;
+}
+.com-ibm-team-repository-web-ui-internal-about .property {
+	color: #666666;
+	white-space: nowrap;
+}
+.com-ibm-team-repository-web-ui-internal-about .contentSection {
+	margin-top: 0.5em;
+}
+.com-ibm-team-repository-web-ui-internal-about .copyright {
+	font-size: 7pt;
+	color: #666666;
+	border-top: 1px solid #e6e6e6;
+	margin-top: 18px;
+	padding-top: 0.5em;
+}
+.com-ibm-team-repository-web-ui-internal-about .prodSection {
+	padding-top: 11px;
+}
+.com-ibm-team-repository-web-ui-internal-about .calSection {
+	display: none;
+	padding-top: 11px;
+}
+.com-ibm-team-repository-web-ui-internal-about .logoSection {
+	position: relative;
+	overflow: hidden;
+	margin-top: 0.5em;
+	margin-bottom: 3px;
+}
+.com-ibm-team-repository-web-ui-internal-about .floatRight {
+	float: right;
+	margin-left: 2em;
+}
+.com-ibm-team-repository-web-ui-internal-about div.errorMsg {
+	padding: 0.3em;
+	background: #FFE0E0;
+	border: 1px solid #FFBFBF;
+	margin-right: 1em;
+	color: #FF0000;
+	font-weight: normal;
+}
+/*------------------------------ Tab Tool Tip---------------------------------*/
+dl {
+	font:normal 12px/15px Arial;
+    position: relative;
+    width: 350px;
+}
+dt {
+    clear: both;
+    float:left;
+    width: 130px;
+    padding: 4px 0 2px 0;
+    text-align: left;
+}
+dd {
+    float: left;
+    width: 200px;
+    margin: 0 0 8px 0;
+    padding-left: 6px;
+}
+
+
+/* The hint to Hide and Show */
+.hint {
+   	display: none;
+    position: absolute;
+    z-index:9999; 
+    right: -90px;
+    width: 150px;
+    margin-top: -4px;
+    border: 1px solid #c93;
+    padding: 10px 12px;
+    /* to fix IE6, I can't just declare a background-color,
+    I must do a bg image, too!  So I'm duplicating the pointer.gif
+    image, and positioning it so that it doesn't show up
+    within the box */
+    background: #ffc url(../../images/pointer.gif) no-repeat -10px 5px;
+}
+
+/* The pointer image is hadded by using another span */
+.hint .hint-pointer {
+    position: absolute;
+    left: -10px;
+    top: 5px;
+    width: 10px;
+    height: 19px;
+    background: url(../../images/pointer.gif) left top no-repeat;
+}
+/*------------------------------Tab End tool Tip------------------------------*/

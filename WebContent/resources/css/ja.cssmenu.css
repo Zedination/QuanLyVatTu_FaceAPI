@@ -1,0 +1,186 @@
+/*------------------------------------------------------------------------
+# JA Senecio for Joomla 1.5 - Version 1.4 - Licence Owner JA130162
+# ------------------------------------------------------------------------
+# Copyright (C) 2004-2008 J.O.O.M Solutions Co., Ltd. All Rights Reserved.
+# @license - Copyrighted Commercial Software
+# Author: J.O.O.M Solutions Co., Ltd
+# Websites:  http://www.joomlart.com -  http://www.joomlancers.com
+# This file may not be redistributed in whole or significant part.
+-------------------------------------------------------------------------*/
+
+
+#ja-cssmenu {
+	margin: 0; /* all lists */
+	padding: 0;
+}
+
+#ja-cssmenu ul {
+	margin: 0; /* all lists */
+	padding: 0;
+}
+
+#ja-cssmenu li {
+	margin: 0; /* all list items */
+	padding: 0;
+	float: left;
+	display: block;
+	background: none;
+	cursor: pointer;
+	font-size:12px;
+}
+
+#ja-cssmenu li ul {
+	width: 300px;
+	position: absolute; /* second-level lists */
+	z-index: 99;
+	left: -999em; /* using left instead of display to hide menus because display: none isn't read by screen readers */
+	height: auto;
+	w\idth: 300px;
+}
+
+#ja-cssmenu li ul ul {
+	margin: -1.5em 0 0 12em; /* third-and-above-level lists */
+}
+
+#ja-cssmenu li li {
+	padding: 0 1em 0 0;
+	margin: 0;
+	width: 285px;
+}
+
+#ja-cssmenu ul a {
+	width: 280px;
+	w\idth: 280px;
+}
+
+#ja-cssmenu li:hover ul ul, #ja-cssmenu li:hover ul ul ul,
+#ja-cssmenu li.sfhover ul ul, #ja-cssmenu li.havechildsfhover ul ul, #ja-cssmenu li.havechild-activesfhover ul ul,
+#ja-cssmenu li.sfhover ul ul ul, #ja-cssmenu li.havechildsfhover ul ul ul, #ja-cssmenu li.havechild-activesfhover ul ul ul {
+	left: -999em;
+}
+
+/* This "unhides" the sub-menus (left: -999em is what hides them) */
+#ja-cssmenu li:hover ul, #ja-cssmenu li li:hover ul, #ja-cssmenu li li li:hover ul,
+#ja-cssmenu li.sfhover ul, #ja-cssmenu li.havechildsfhover ul, #ja-cssmenu li.havechild-activesfhover ul,
+#ja-cssmenu li li.sfhover ul, #ja-cssmenu li li.havesubchildsfhover ul, #ja-cssmenu li li.havesubchild-activesfhover ul,
+#ja-cssmenu li li li.sfhover ul, #ja-cssmenu li li li.havesubchildsfhover ul, #ja-cssmenu li li li.havesubchild-activesfhover ul {
+	left: auto;
+}
+
+/* STYLING THE MENU
+-----------------------------------*/
+#ja-cssmenu li ul {
+	border: 1px solid #CCCCCC;
+	background: #E6E6E6;
+}
+
+#ja-cssmenu li ul li {
+	border-top: 1px solid #F7F7F7;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+#ja-cssmenu li ul a {
+	border-right: none;
+	margin: 0;
+	padding: 7px 10px;
+	border-top: none;
+	background: none;
+	font-weight: normal;
+	line-height: normal;
+	color: #184F9F;
+	font-size: 11px;
+}
+
+#ja-cssmenu li ul a:hover,
+#ja-cssmenu li ul a:active,
+#ja-cssmenu li ul a:focus {
+	margin: 0;
+	color: #3589E3;
+}
+
+#ja-cssmenu li a {
+	margin: 5px 0 0;
+	padding: 0 20px;
+	display: block;
+	color: #184F9F;
+	font-weight: bold;
+	line-height: 30px;
+	text-decoration: none;
+}
+
+#ja-cssmenu li a:hover {
+	margin: 5px 0 0;
+	color: #FA3A06;
+}
+
+#ja-cssmenu li a.active,
+#ja-cssmenu li a.active:hover,
+#ja-cssmenu li a.active:active,
+#ja-cssmenu li a.active:focus {
+	color: #1F29EC;
+	line-height: 30px;
+}
+
+#ja-cssmenu li li a.active,
+#ja-cssmenu li li a.hover,
+#ja-cssmenu li li a.active,
+#ja-cssmenu li li a.focus {
+	border-bottom: none !important;
+	background: none !important;
+	color: #3589E3 !important;
+	font-weight: bold !important;
+	line-height: normal !important;
+}
+
+#ja-cssmenu li.havechild {
+}
+
+#ja-cssmenu li.havechild-active {
+}
+
+#ja-cssmenu li.havesubchild {
+	background: url(img/arrowchild.gif) no-repeat 94% 50%;
+}
+
+#ja-cssmenu li.havesubchild-active {
+	background: url(img/arrowchild.gif) no-repeat 94% 50%;
+}
+
+#ja-cssmenu ul li:hover,
+#ja-cssmenu ul ul li:hover,
+#ja-cssmenu ul li.sfhover,
+#ja-cssmenu ul li.havesubchildsfhover,
+#ja-cssmenu ul li.havesubchild-activesfhover,
+#ja-cssmenu ul ul li.sfhover,
+#ja-cssmenu ul ul li.havesubchildsfhover,
+#ja-cssmenu ul ul li.havesubchild-activesfhover {
+	background: url(img/grad1.gif) repeat-x #FFFFFF;
+}
+
+#ja-cssmenu li:hover,
+#ja-cssmenu li.sfhover,
+#ja-cssmenu li.havechildsfhover,
+#ja-cssmenu li.havechild-activesfhover,
+#ja-cssmenu li:hover a.first-item,
+#ja-cssmenu li.sfhover a.first-item,
+#ja-cssmenu li.havechildsfhover a.first-item,
+#ja-cssmenu li.havechild-activesfhover a.first-item {
+	color: #FFFFFF;
+	/*background: url(img/grad2.gif) repeat-x bottom #B8D371;*/
+	text-decoration: none;
+}
+
+#ja-cssmenu li a.active-first-item,
+#ja-cssmenu li a.active-first-item:hover,
+#ja-cssmenu li a.active-first-item:active,
+#ja-cssmenu li a.active-first-item:focus {
+	margin: 0;
+	padding: 0 20px;
+	display: block;
+	font-size: 115%;
+	font-weight: bold;
+	text-decoration: none;
+	background: url(img/grad1.gif) repeat-x top #FFFFFF;
+	color: #333333;
+	line-height: 35px;
+}
